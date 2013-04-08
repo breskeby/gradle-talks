@@ -1,0 +1,7 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1365416674000 409 77075b6cb628f22bb38c119eda8a2198f0196d5f /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/res/all/release/layout/main.xml
+1365416674000 10695 dc9ba109a058f211ddfc24548b81c62cbb4c59b5 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/res/all/release/raw/notice.txt
+1365416674000 122 2b0c807ea50a6525bd4d357e9f3a4175b95ec632 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/res/all/release/values/values.xml
+1365416674000 2574 7cbb0a80689da95c9758ccbb9b8632edc6630476 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/res/all/release/drawable/icon.png

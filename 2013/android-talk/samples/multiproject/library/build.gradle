@@ -1,0 +1,10 @@
+apply plugin: 'android-library'
+
+android {
+    compileSdkVersion 15
+}
+
+dependencies {
+    compile project(':baseLibrary')
+    compile project(':util')
+}

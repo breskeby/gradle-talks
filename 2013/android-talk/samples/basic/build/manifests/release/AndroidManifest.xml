@@ -1,0 +1,20 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="12" android:versionName="2.0" package="com.android.tests.basic">
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="16"/>
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:label="@string/app_name" android:name="com.android.tests.basic.Main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+    <uses-permission android:name="com.blah"/>
+
+    <permission-group android:description="@string/app_name" android:label="@string/app_name" android:name="foo.permission-group.COST_MONEY"/>
+
+    <permission android:description="@string/app_name" android:label="@string/app_name" android:name="foo.permission.SEND_SMS" android:permissionGroup="foo.permission-group.COST_MONEY"/>
+
+    <permission android:description="@string/app_name" android:label="@string/app_name" android:name="foo.blah.SEND_SMS" android:permissionGroup="foo.permission-group.COST_MONEY"/>
+
+</manifest>

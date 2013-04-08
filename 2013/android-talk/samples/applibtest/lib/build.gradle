@@ -1,0 +1,9 @@
+apply plugin: 'android-library'
+
+android {
+    compileSdkVersion 15
+
+	defaultConfig {
+		testPackageName = "com.android.tests.testprojecttest.testlib"
+	}
+}

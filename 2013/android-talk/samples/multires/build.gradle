@@ -1,0 +1,21 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.3'
+    }
+}
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 15
+
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src/main/res1', 'src/main/res2'
+            }
+        }
+    }
+}
