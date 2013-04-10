@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger>
-
-    <dataSet config="main" >
-        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/src/instrumentTest/res" />
-        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/res/rs/test" />
-    </dataSet>
-
-</merger>

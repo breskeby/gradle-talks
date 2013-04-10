@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<testsuite name="com.android.tests.basic.MainTest" tests="1" failures="0" errors="0" time="2.58" timestamp="2013-04-08T13:53:26" hostname="localhost">
-  <properties device="NEXUS_7(AVD) - 4.2.2" flavor="Main" project="basic" />
-  <testcase name="testPreconditions" classname="com.android.tests.basic.MainTest" time="2.554" />
-</testsuite>

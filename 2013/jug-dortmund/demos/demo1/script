@@ -1,0 +1,31 @@
+
+
+BEFORE:
+- uhr ändern
+- clean
+- build.gradle cleanen
+- projektübersicht cleanen
+- taskübersicht cleanen
+
+-------
+> add imperativ task "sayHello" -> execute sayHello
+
+* typischer build script für simple java projekte
+
+> run build task -> failed -> add testCompile junit:junit:4.10
+> run build task again -> success -> explain executed tasks
+-> show generated jar file
+-> show generated test.html
+> add imperativ task "sayHello" -> execute sayHello
+
+* wir wollen integrationstest -> dauern länger -> eigene dependencies, etc.
+-> sourcesets erklären
+
+democode:
+- add configuration "integTest"
+- add sourceSet 
+
+- add applicationplugin
+
+- refactor integTest to integTest.gradle
+-------
