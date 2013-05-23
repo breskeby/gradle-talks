@@ -1,0 +1,25 @@
+topics
+# documentation
+## asciidoc
+
+# database
+## migration with liquibase
+## testing mongodb
+
+# other script languages
+(## python)
+
+# ant tasks
+## ftp
+
+# Amazon S3
+
+# GIT
+
+# remote jenkins triggering
+
+# notification
+## pushover notification (https://gist.github.com/huxi/5622330)
+## eMail
+
+(# video formatting)

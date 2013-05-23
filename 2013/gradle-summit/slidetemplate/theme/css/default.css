@@ -1241,6 +1241,10 @@ article.smaller q:before, article.smaller q:after {
   bottom: 225px;
 }
 
+.qanda h2 {
+  font-size: 200px;
+}
+
 /* line 862, ../scss/default.scss */
 .thank-you-slide {
   background: #acd180 !important;

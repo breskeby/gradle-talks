@@ -1,0 +1,26 @@
+topics to cover
+# IDEs
+## eclipse
+### gradle plugin
+### sts support 
+## netbeans
+## idea
+## textmate
+
+# Build Server
+## teamcity
+## jenkins
+## bamboo
+
+#artifact server
+## nexus
+## artifactory
+
+# cloud build tools
+## cloud-bees
+## travis-ci
+
+(# vagrant)
+
+(# github)
+
