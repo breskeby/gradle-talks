@@ -1,10 +1,8 @@
 topics to cover
 # IDEs
-## eclipse
-### gradle plugin
-### sts support 
 ## netbeans
 ## idea
+## eclipse 
 ## textmate
 
 # Build Server
@@ -16,9 +14,15 @@ topics to cover
 ## nexus
 ## artifactory
 
+#jrebel
+#sonar
+
 # cloud build tools
-## cloud-bees
+## buildhive
 ## travis-ci
+
+# trello
+# jira
 
 (# vagrant)
 
