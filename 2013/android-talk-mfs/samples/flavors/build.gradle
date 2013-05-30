@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.3'
+    }
+}
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 15
+    flavorGroups   "group1", "group2"
+
+    productFlavors {
+        free {
+            flavorGroup   "group1"
+
+            buildConfig   "public final static String GROUP1 = \"free\";"
+        }
+        payed {
+            flavorGroup   "group1"
+            buildConfig   "public final static String GROUP1 = \"payed\";"
+        }
+
+        x86 {
+            flavorGroup   "group2"
+            buildConfig   "public final static String GROUP2 = \"x86\";"
+        }
+        asm {
+            flavorGroup   "group2"
+            buildConfig   "public final static String GROUP2 = \"asm\";"
+        }
+    }
+}

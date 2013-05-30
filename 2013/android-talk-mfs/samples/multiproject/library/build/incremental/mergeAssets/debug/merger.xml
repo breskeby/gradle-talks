@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="baseLibrary-1.0.aar" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/library/build/exploded-bundles/baseLibrary-1.0.aar/assets" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/library/src/main/assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/library/src/debug/assets" />
+    </dataSet>
+
+</merger>

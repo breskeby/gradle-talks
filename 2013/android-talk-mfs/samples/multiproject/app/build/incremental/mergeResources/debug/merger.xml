@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="baseLibrary-1.0.aar" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/build/exploded-bundles/baseLibrary-1.0.aar/res" />
+    </dataSet>
+    <dataSet config="library-1.0.aar" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/build/exploded-bundles/library-1.0.aar/res" >
+            <file
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/build/exploded-bundles/library-1.0.aar/res/values/values.xml"
+                qualifiers="" >
+                <string name="title_activity_display_message" >People
+                </string>
+            </file>
+        </source>
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/src/main/res" >
+            <file
+                name="ic_launcher"
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/src/main/res/drawable-hdpi/ic_launcher.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/src/main/res/drawable-ldpi/ic_launcher.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/src/main/res/drawable-mdpi/ic_launcher.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="main"
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/src/main/res/layout/main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="button_send" >Go
+                </string>
+                <string name="app_name" >Composite App
+                </string>
+            </file>
+        </source>
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/build/res/rs/debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/src/debug/res" />
+    </dataSet>
+
+</merger>

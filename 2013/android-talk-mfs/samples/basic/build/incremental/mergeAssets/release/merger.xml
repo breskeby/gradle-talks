@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/src/main/assets" >
+            <file
+                name="notice.txt"
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/src/main/assets/notice.txt" />
+        </source>
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/src/release/assets" />
+    </dataSet>
+
+</merger>

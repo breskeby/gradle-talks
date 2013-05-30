@@ -1,0 +1,4 @@
+- lookup 0.4 features (compared to 0.3)
+- fix roadmap slide (lookup roadmap)
+- test samples
+- fix > "failed to find Build Tools revision 17.0.0" error message

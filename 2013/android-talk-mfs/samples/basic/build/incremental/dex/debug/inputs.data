@@ -1,0 +1,15 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1366155985000 488 0a7cb1cf99f6734d6ecadadf49aa8550bd490601 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/debug/com/android/tests/basic/Manifest$permission.class
+1366155985000 409 cb28ab25753aef1564db77585bbea1535f51967a /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/debug/com/android/tests/basic/R$layout.class
+1366155985000 463 7a6bf93ee7ba48ccf589b17127060a32af56a266 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/debug/com/android/tests/basic/BuildConfig.class
+1366155985000 397 ef36f31a90f8b7b44d2755cc8ae893cbd10d3a6f /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/debug/com/android/tests/basic/R$id.class
+1366155985000 503 fa13468af40950192cb2321534a12a39e8f66fce /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/debug/com/android/tests/basic/Main.class
+1366155985000 402 ef155fb3f4f98a66292df49101750bae0a59af8a /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/debug/com/android/tests/basic/R$raw.class
+1366155985000 415 4f1a223ba9bc24c82a7f81b318de9706d2f64b9b /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/debug/com/android/tests/basic/R$drawable.class
+1366155985000 476 4253ef5ba246ddd0be9e69c9ce7d2461d30e757e /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/debug/com/android/tests/basic/Manifest.class
+1366155985000 522 0a7c2d959c744041fa5d39074e8e9342478b7add /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/debug/com/android/tests/basic/Manifest$permission_group.class
+1366155985000 413 f305a29810a07c120914698a63713e7c67276286 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/debug/com/android/tests/basic/R$string.class
+1366155985000 355 a02f7605b2feea09e59d4548d74d8fdcc99aced5 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/debug/com/android/tests/basic/R$attr.class
+1366155985000 619 6f548c0b5962e36d4fcc72206919bc2c60e6301f /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/debug/com/android/tests/basic/R.class

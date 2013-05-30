@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/baseLibrary/src/main/res" />
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/baseLibrary/build/res/rs/release" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/baseLibrary/src/release/res" />
+    </dataSet>
+
+</merger>

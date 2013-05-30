@@ -1,0 +1,1 @@
+int string title_activity_display_message 0x7f020000

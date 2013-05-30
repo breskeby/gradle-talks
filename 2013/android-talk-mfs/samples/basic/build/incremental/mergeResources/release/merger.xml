@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/src/main/res" >
+            <file
+                name="icon"
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/src/main/res/drawable/icon.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="main"
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/src/main/res/layout/main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="notice"
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/src/main/res/raw/notice.txt"
+                qualifiers=""
+                type="raw" />
+            <file
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="app_name" >_Test-Basic
+                </string>
+            </file>
+        </source>
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/res/rs/release" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/src/release/res" >
+            <file
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/src/release/res/values/strings.xml"
+                qualifiers="" >
+                <string name="app_name" >_Test-Basic-Release
+                </string>
+            </file>
+        </source>
+    </dataSet>
+
+</merger>

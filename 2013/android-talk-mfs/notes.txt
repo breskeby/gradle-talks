@@ -1,0 +1,197 @@
+- use gradle 1.3
+	- export GRADLE_HOME=/Users/Rene/gradleware/dists/gradle-1.3
+	- export PATH=$GRADLE_HOME/bin:$PATH
+- set ANDROID_HOME
+	-  export ANDROID_HOME=/Users/Rene/Downloads/adt/sdk
+	
+	
+http://pivotal.github.io/robolectric/maven-quick-start.html
+
+
+
+- intro 
+- overview
+	- talk about two things
+		- why is gradle + android such an important topic
+		- android tooling team -> gradle is the default build system
+		- not just new build system
+		- also:
+			- new project structure
+			- new way to work with android projects
+				- android project layout
+				- ide integration
+			- gradle is just a part of that story
+			- not just another way of building android apps; 
+				it's the _default_ way
+		- maybe impact on maven user
+	- who is using a build system for android building
+	- overview of what gradle is (demos, samples)
+		- why good choice for android
+			
+- why gradle
+	- before ant/maven
+	- ant maven
+	- gradle 
+		- declarativ / imperative
+		- heterogenität is the future
+
+- demo ( sourcesets demo )
+- demo ( incremental build )
+
+- android
+	- show basic example project
+		- source directory (main/... java, res, assets)
+		- release folder
+		
+--slide--		
+---------
+h1 current status
+
+* Two build mechanisms
+	* Eclipse
+	* Ant - just a script
+	(3rd party maven plugin)
+	
+* Customization ? 
+	* Nothing in ADT   
+	* Manually hacking in ant
+---------
+// - ant build is hard to maintain
+// - new ide integration based on build system 
+// - in the future adt delegates to new build tool
+// 		- this is I think the general build system should work
+
+// - problem build system not fast enough
+// - story about manually setup before able to run integTests
+
+
+--slide--		
+---------
+h1 features
+
+* Dependency Management
+* Build more than one version of the app
+	* Customize manifest per version
+	* Custom code/resource per version
+	* better handle debug vs release (resources, install both, etc.)
+* Flexible for developers
+	* Easier setup
+	* customization, extensibility
+	* make it work for their needs
+	
+* IDE integration
+---------
+// - gradle supports mvn, ivy, ...
+// 		- best dependency mangagment tooling
+//			- version conflicts (spring core vs. spring full)
+			- local cache
+// - build more than one version was really important -- no new subproject just to override something
+
+--slide--		
+---------
+h1 why gradle
+
+* Allows really good implementation
+	* Custom DSL
+	* plugin with clear API for extensibility
+* VERY flexible for customization
+* Open minded, doesnt force devs into a certain way
+	* Ant target support, Maven repos, ivy repos...
+* Tooling API for IDE integration 
+---------
+// - new project structure is 1st class citizen in the build script
+
+--slide--		
+---------
+h1 build features
+
+* product flavours
+* build types
+* build variants
+* SourceSets
+* Library Projects
+* Testing
+
+//
+
+
+--slide--		
+---------
+h1 product flavour
+
+* a way to generate several versions of the same app
+* Source code + resources overlay
+	* allow custom dependencies
+
+* Customize app parameters
+	* package name
+	* min/targetSdkVersion
+	* versionCodeName
+	* signing info
+
+// multiple versions (free + payed in one project -- no multiproject build)
+// code + resources overlay
+	- biggest chunk in src/main/java
+	- specific code + resources for payd and free
+	- payd needs different dependencies
+	- that's one dimension of the story!
+
+--slide--		
+---------
+h1 build types
+* controls how an app is build
+* Source code + resources overlay
+	* also custom dependencies
+
+* Customize app parameters
+	* debugable flag
+	* native debug compilation flag
+	* package suffix
+	* debug signing
+	* proguard options <!-- proguard -->
+	* 2 default types (debug + release)
+	* orthogonal to product flavours
+
+// e.g. debug, release, staging.. 
+
+--slide--		
+---------
+h1 build variant
+
+* build is always a flavour + a type
+
+			debug			release
+free		free-debug		free-release
+
+payed		payed-debug		payed-release
+
+
+* manage overlay
+
+build type -> flavour -> main
+
+
+
+
+--slide--		
+---------
+h1 build variant, II
+
+* product flavour groups
+
+					debug				release
+free	x86			free-x86-debug		free-x86-release
+		ARM			free-arm-debug		free-arm-release
+
+free	x86			payed-x86-debug		payed-x86-release
+		ARM			payed-arm-debug		payed-arm-release
+
+
+
+// support different platforms/apks
+
+
+
+-Demo flavours
+
+

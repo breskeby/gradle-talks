@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="baseLibrary-1.0.aar" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/library/build/exploded-bundles/baseLibrary-1.0.aar/res" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/library/src/main/res" >
+            <file
+                path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/library/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="title_activity_display_message" >People
+                </string>
+            </file>
+        </source>
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/library/build/res/rs/release" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/library/src/release/res" />
+    </dataSet>
+
+</merger>

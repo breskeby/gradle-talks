@@ -1,0 +1,5 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1366155985000 485 e1cb0349f1c26da98406845b09991c7fd77a5e33 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/test/com/android/tests/basic/debug/test/BuildConfig.class
+1366155985000 1130 d211ee2ffc7d29ec02d569612b774f5bc3f097fc /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/classes/test/com/android/tests/basic/MainTest.class
