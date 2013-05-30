@@ -1,9 +1,0 @@
-# incremental data. DO NOT EDIT.
-# format is <lastModified> <length> <SHA-1> <path>
-# Encoding is UTF-8
-1368688207000 451 4871c12ee6ba84cad93eed422864560047047127 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/build/res/all/release/layout/main.xml
-1368688207000 14383 82acdd75e3fcc36026109406625edc69d4d7212d /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/build/res/all/release/drawable-xhdpi/ic_launcher.png
-1368688207000 2729 68b8ab0d3181d74d05641da4c5ed13465ea1a997 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/build/res/all/release/drawable-ldpi/ic_launcher.png
-1368688207000 9397 4a5a9affbb731f195fc18fea78d51be7db7536a2 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/build/res/all/release/drawable-hdpi/ic_launcher.png
-1368688207000 225 b6c06c19c3d44a1d46ad2902c10d00ebd0d2290e /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/build/res/all/release/values/values.xml
-1368688207000 5237 7761bceaf18ed25cdba5f34bf00a55616d078acf /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/multiproject/app/build/res/all/release/drawable-mdpi/ic_launcher.png

@@ -1,6 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.android.multiproject.library">
-    <application>
-        <activity android:label="@string/title_activity_display_message" android:name="com.example.android.multiproject.library.ShowPeopleActivity">
-            </activity>
-    </application>
-</manifest>

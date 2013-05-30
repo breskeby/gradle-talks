@@ -1,7 +1,0 @@
-# incremental data. DO NOT EDIT.
-# format is <lastModified> <length> <SHA-1> <path>
-# Encoding is UTF-8
-1366155982000 409 77075b6cb628f22bb38c119eda8a2198f0196d5f /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/res/all/debug/layout/main.xml
-1366155982000 2574 7cbb0a80689da95c9758ccbb9b8632edc6630476 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/res/all/debug/drawable/icon.png
-1366155982000 114 38193f3021b40cc90d0bc46bc3f7413802b04bf3 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/res/all/debug/values/values.xml
-1366155982000 10695 dc9ba109a058f211ddfc24548b81c62cbb4c59b5 /Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/android-talk/samples/basic/build/res/all/debug/raw/notice.txt
