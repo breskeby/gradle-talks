@@ -104,6 +104,29 @@ presentation
 // 		Listing executed tasks with time execution for each task
 // 		Providing a log for each module in a multi-project
 
+# bamboo demo
+
+* show addon overview (artifactory gradle plugin)
+* create sample build
+MyProject -> Basic Coverage -> macosx 1.7
+* show gradle options
+* configure test parser
+	'**/test-results/*.xml'
+* run build
+
+# teamcity demo
+* bundled plugin shipped with teamcity 
+* console support
+
+# go - screenshot
+
+# Heroku
+
+# https://drone.io
+
+# upload sample git repo to github -> done 
+
+**/test-results/*.xml
 
 #credits
 * jungle.jpg (http://www.flickr.com/photos/geographyalltheway_photos/4168656319)
