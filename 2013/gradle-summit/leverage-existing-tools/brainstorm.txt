@@ -2,27 +2,30 @@ topics
 # documentation
 ## asciidoc
 
-# deployment
-## liverebel
-
 # database
 ## migration with liquibase
 ## testing mongodb
 
 # other script languages
-(## python)
+(## python, erlang, nodejs, objective-c)
+
+#objective-c
+
+* 'xcodebuild' very basic not very command line friendly/reusable
+* google for "'xcodebuild' replacement for ci"
+* install via gradle
+* https://github.com/facebook/xctool
+-> xctool.sh -project SomeGradleBuiltMacosXApp.xcodeproj -scheme SomeGradleBuiltMacosXApp test
+
+# macports update (?)
 
 # ant tasks
 ## ftp
-
 # Amazon S3
 
 # GIT
-
 # remote jenkins triggering
 
 # notification
 ## pushover notification (https://gist.github.com/huxi/5622330)
 ## eMail
-
-(# video formatting)

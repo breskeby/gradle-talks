@@ -118,15 +118,55 @@ MyProject -> Basic Coverage -> macosx 1.7
 * bundled plugin shipped with teamcity 
 * console support
 
-# go - screenshot
+# GO - Screenshot
 
-# Heroku
+# Sonar
+* zoom screen
+* show nemo (http://nemo.sonarsource.org)
+	* mention plugins (C++, Erlang, PL/SQL)
+	* eclipse plugins
+* show Active-MQ
+* show history graph in dashboard
+* open petclinic sample
+* configure sonar
+    
+    //sonarRunner {
+    //    sonarProperties {
+    //        property "sonar.host.url", "http://localhost:9000"
+    //        property "sonar.jdbc.url", "jdbc:h2:tcp://localhost:9092/sonar"
+    //        property "sonar.jdbc.driverClassName", "org.hibernate.dialect.H2Dialect"
+    //        property "sonar.jdbc.username", "sonar"
+    //        property "sonar.jdbc.password", "sonar"
+    //    }
+    //}
 
-# https://drone.io
 
-# upload sample git repo to github -> done 
+//TODO
+* gradlew tasks
+* "gradlew sonarRunner"
+* show console
+* show localhost:9000
+* enable jacoco
+* "gradlew check sonarRunner"
 
-**/test-results/*.xml
+# drone.io demo
+-> clear all projects
+-> show drone.io
+-> vorteil:
+	- gute ui
+	- support for bitbucket, github, goodle-code
+* login via github
+* select sampleproject
+* configure via wrapper
+
+
+# jrebel
+
+# deployment
+## bintray
+## liverebel
+
+# vagrant
 
 #credits
 * jungle.jpg (http://www.flickr.com/photos/geographyalltheway_photos/4168656319)
