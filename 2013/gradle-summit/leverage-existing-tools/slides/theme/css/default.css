@@ -463,6 +463,14 @@ a:hover {
   color: black !important;
 }
 
+.punchline h2 {
+  font-size: 200px;
+}
+
+.punchline h3 {
+  font-size: 100px;
+}
+
 /* line 312, ../scss/default.scss */
 h1, h2, h3 {
   font-weight: 600;

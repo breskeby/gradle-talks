@@ -36,6 +36,15 @@ Authors: Eric Bidelman <ebidel@gmail.com>
   </slide>
 
   <slide class="title-slide segue nobackground">
+	<aside class="note">
+      <section>
+        <ul>
+          <li>Welcome / self intro</li>
+          <li>In this talk is I want to discuss...</li>
+          <li>by patterns, best practices, examples</li>
+        </ul>
+      </section>
+    </aside>
     <aside class="gdbar"><img src="images/logo_transparent.gif"></aside>
     <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
@@ -45,23 +54,386 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     </hgroup>
   </slide>
 
-  <slide>
+
+<slide class="punchline">
+	<aside class="note">
+      <section>
+        <ul>
+          <li>let's think about Motivation</li>
+          <li>excellent tools out there</li>
+        </ul>
+      </section>
+    </aside>
+    <article class="flexbox vcenter">
+		<h2>WHY?</h2>
+    </article>
+  </slide>
+
+<slide>
     <hgroup>
-      <h2>Slide with Bullets</h2>
+      <h2>Because:</h2>
     </hgroup>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>aspectj, code generators</li>
+          <li>dedicated tools(repository managers, vagrant, java rebel)</li>
+          <li>fit for different purposes</li>
+        </ul>
+      </section>
+    </aside>
     <article>
-      <ul>
-        <li>Titles are formatted as Open Sans with bold applied and font size is set at 45</li>
-        <li>Title capitalization is title case
-          <ul>
-            <li>Subtitle capitalization is title case</li>
-          </ul>
-        </li>
-        <li>Subtitle capitalization is title case</li>
-        <li>Titles and subtitles should never have a period at the end</li>
+      <ul class="build">
+        <li>So many awesome technologies out there!</li>
+        <li>So many awesome tools are out there!</li>
+		<li>So much legacy (code) out there!</li>
+		<li>We don't want to reinvent the wheel!</li>
+		<img src="images/reinventthewheel.jpg" alt="Description" title="Description">
       </ul>
     </article>
   </slide>
+
+<slide>
+    <hgroup>
+      <h2>What it is about (for Developers)</h2>
+    </hgroup>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>developer attracted to technology</li>
+          <li>dedicated tools(repository managers, vagrant, java rebel)</li>
+        </ul>
+      </section>
+    </aside>
+    <article class="flexbox vcenter">
+      <img src="images/asap1.png" alt="Description" title="Description">
+      <footer class="source">source: place source info here</footer>
+    </article>
+  </slide>
+
+<slide>
+    <hgroup>
+      <h2>What it is about (for your Boss)</h2>
+    </hgroup>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>developer attracted to technology</li>
+          <li>dedicated tools(repository managers, vagrant, java rebel)</li>
+        </ul>
+      </section>
+    </aside>
+    <article class="flexbox vcenter">
+      <img src="images/asap2.png" alt="Description" title="Description">
+      <footer class="source">source: place source info here</footer>
+    </article>
+  </slide>
+
+<slide>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>Let's think about what dev workflow should look like</li>
+          <li>icrease productivity (devs, release team,  ops) / onboarding</li>
+          <li>remove manual (non reproducable) steps</li>
+          <li>keep to state of the art (goes back to not reinventing the wheel)</li>
+          <li>tracebility</li>
+
+          <li>(technical dept)</li>
+        </ul>
+      </section>
+    </aside>
+    <hgroup>
+      <h2>What the development<br/> workflow should look like</h2>
+    </hgroup>
+    <article class="flexbox">
+      <img src="images/uhrwerk2.jpg" alt="Description" title="Description">
+      <!--<footer class="source">source: place source info here</footer>-->
+    </article>
+  </slide>
+
+<slide>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>tracebility</li>
+          <li>(technical dept)</li>
+        </ul>
+      </section>
+    </aside>
+    <hgroup>
+      <h2>Unfortunately...</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/oldgears.jpg" alt="Description" title="Description">
+      <!--<footer class="source">source: place source info here</footer>-->
+    </article>
+  </slide>
+
+<slide>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>tracebility</li>
+          <li>(technical dept)</li>
+        </ul>
+      </section>
+    </aside>
+    <hgroup>
+      <h2>and when it comes to the release...</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/codebase.gif" alt="Description" title="Description">
+      <!--<footer class="source">source: place source info here</footer>-->
+    </article>
+  </slide>
+
+ <slide class="title-slide nobackground" 	
+	style="background-image: url(images/oilcan_downtown.jpg)">
+ </slide>
+
+<slide>
+    <hgroup>
+      <h2>Gradle is a build integration tool</h2>
+    </hgroup>
+    <article>
+      <p>designed to integrate with others</p>
+      <ul class="build">
+        <li>first class ant support</li>
+        <li>interacting with Maven & Ivy</li>
+        <li>out of the box plugins for 
+			<ul>
+	            <li>IDEs</li>
+	            <li>JaCoCo</li>
+	        </ul>
+		</li>
+		<li>support for tackling the <i>unknown</i></li>
+      </ul>
+    </article>
+  </slide>
+
+<slide class="punchline">
+    <article class="flexbox vcenter">
+		<h3>Integration Patterns</h3>
+    </article>
+  </slide>
+
+  <slide>
+	<hgroup>
+      <h2>#1 Gradle Plugin available</h2>
+    </hgroup>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>use (h) for highlighting code</li>
+        </ul>
+      </section>
+    </aside>    
+	<article>
+      <br/><br/><!--fixme-->
+      <pre class="prettyprint" data-lang="build.gradle">
+  buildscript {
+      repositories {
+          mavenCentral()
+      }
+      dependencies {
+          classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:0.9.8'
+      }
+  }
+  <b>apply plugin: 'tomcat'</b>
+</pre>
+    </article>
+  </slide>
+
+<slide class="punchline">
+    <article class="flexbox vcenter">
+		<h2>Demo</h2>
+    </article>
+  </slide>
+
+<slide>
+	<hgroup>
+      <h2>#2 ANT task available</h2>
+    </hgroup>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>use (h) for highlighting code</li>
+        </ul>
+      </section>
+    </aside>    
+	<article>
+      <br/><br/><!--fixme-->
+      <pre class="prettyprint" data-lang="build.gradle">
+ant {
+  ftp(server: "ftp.acme.org", userid: 'me', ...) {
+    fileset(dir: "htdocs/manual") {
+      include name: "**/*.html"
+    }
+    myFileTree.addToAntBuilder(ant, 'fileset')
+  }
+</pre>
+    </article>
+  </slide>
+
+<slide>
+	<hgroup>
+      <h2>#2 ANT task available</h2>
+    </hgroup>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>use (h) for highlighting code</li>
+        </ul>
+      </section>
+    </aside>    
+	<article>
+      <br/><br/><!--fixme-->
+      <pre class="prettyprint" data-lang="build.gradle">
+task ajCompile{
+  doLast{
+    ant.taskdef(resource:"org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties", 
+ 			 	classpath: <b>configurations.ajc.asPath</b>)    
+    ant.iajc(source:sourceCompatibility, target:targetCompatibility, 
+				destDir:sourceSets.main.classesDir.absolutePath
+				aspectPath:<b>configurations.aspects.asPath</b>, 
+				inpath:<b>configurations.ajInpath.asPath</b>, 
+				classpath:<b>configurations.compile.asPath</b>){ 
+					
+        sourceroots{
+            sourceSets.main.java.srcDirs.each{
+                pathelement(location:it.absolutePath)
+            }       
+        }
+    }		
+}
+</pre>
+    </article>
+  </slide>
+<!--
+}-->
+  
+	
+  <slide>
+    <hgroup>
+      <h2>Ant task available</h2>
+      <h3>Subtitle Placeholder</h3>
+    </hgroup>
+    <article>
+      <p>A list where items build:</p>
+      <ul class="build">
+        <li>Pressing 'h' highlights code snippets</li>
+        <li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
+        <li>Pressing 'f' toggles fullscreen viewing</li>
+        <li>Pressing 'w' toggles widescreen</li>
+        <li>Pressing 'o' toggles overview mode</li>
+        <li>Pressing 'ESC' toggles off these goodies</li>
+      </ul>
+      <p>Another list, but items fade as they build:</p>
+      <ul class="build fade">
+        <li>Hover over me!</li>
+        <li>Hover over me!</li>
+        <li>Hover over me!</li>
+      </ul>
+    </article>
+  </slide>
+
+<slide>
+    <hgroup>
+      <h2>Java Library available</h2>
+      <h3>Subtitle Placeholder</h3>
+    </hgroup>
+    <article>
+      <p>A list where items build:</p>
+      <ul class="build">
+        <li>Pressing 'h' highlights code snippets</li>
+        <li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
+        <li>Pressing 'f' toggles fullscreen viewing</li>
+        <li>Pressing 'w' toggles widescreen</li>
+        <li>Pressing 'o' toggles overview mode</li>
+        <li>Pressing 'ESC' toggles off these goodies</li>
+      </ul>
+      <p>Another list, but items fade as they build:</p>
+      <ul class="build fade">
+        <li>Hover over me!</li>
+        <li>Hover over me!</li>
+        <li>Hover over me!</li>
+      </ul>
+    </article>
+  </slide>
+
+<slide>
+    <hgroup>
+      <h2>Command line tool available</h2>
+      <h3>Subtitle Placeholder</h3>
+    </hgroup>
+    <article>
+      <p>A list where items build:</p>
+      <ul class="build">
+        <li>Pressing 'h' highlights code snippets</li>
+        <li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
+        <li>Pressing 'f' toggles fullscreen viewing</li>
+        <li>Pressing 'w' toggles widescreen</li>
+        <li>Pressing 'o' toggles overview mode</li>
+        <li>Pressing 'ESC' toggles off these goodies</li>
+      </ul>
+      <p>Another list, but items fade as they build:</p>
+      <ul class="build fade">
+        <li>Hover over me!</li>
+        <li>Hover over me!</li>
+        <li>Hover over me!</li>
+      </ul>
+    </article>
+  </slide>
+
+<slide>
+    <hgroup>
+      <h2>REST - API available</h2>
+      <h3>Subtitle Placeholder</h3>
+    </hgroup>
+    <article>
+      <p>A list where items build:</p>
+      <ul class="build">
+        <li>Pressing 'h' highlights code snippets</li>
+        <li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
+        <li>Pressing 'f' toggles fullscreen viewing</li>
+        <li>Pressing 'w' toggles widescreen</li>
+        <li>Pressing 'o' toggles overview mode</li>
+        <li>Pressing 'ESC' toggles off these goodies</li>
+      </ul>
+      <p>Another list, but items fade as they build:</p>
+      <ul class="build fade">
+        <li>Hover over me!</li>
+        <li>Hover over me!</li>
+        <li>Hover over me!</li>
+      </ul>
+    </article>
+  </slide>
+
+<slide>
+    <hgroup>
+      <h2>Conventations available</h2>
+      <h3>Subtitle Placeholder</h3>
+    </hgroup>
+    <article>
+      <p>A list where items build:</p>
+      <ul class="build">
+        <li>Pressing 'h' highlights code snippets</li>
+        <li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
+        <li>Pressing 'f' toggles fullscreen viewing</li>
+        <li>Pressing 'w' toggles widescreen</li>
+        <li>Pressing 'o' toggles overview mode</li>
+        <li>Pressing 'ESC' toggles off these goodies</li>
+      </ul>
+      <p>Another list, but items fade as they build:</p>
+      <ul class="build fade">
+        <li>Hover over me!</li>
+        <li>Hover over me!</li>
+        <li>Hover over me!</li>
+      </ul>
+    </article>
+  </slide>
+
 
   <slide>
     <hgroup>
@@ -375,6 +747,12 @@ public void helloWorld(String world) {
   <slide>
     <article>
       <iframe data-src="http://www.google.com/doodle4google/history.html"></iframe>
+    </article>
+  </slide>
+
+<slide class="punchline">
+    <article class="flexbox vcenter">
+		<h2>Q&A</h2>
     </article>
   </slide>
 

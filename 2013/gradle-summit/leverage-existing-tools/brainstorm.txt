@@ -26,6 +26,16 @@ topics
 # GIT
 # remote jenkins triggering
 
-# notification
+# notification (example on include http service)
 ## pushover notification (https://gist.github.com/huxi/5622330)
 ## eMail
+
+## 
+"screencapture -w -W -i ~/Desktop/capture.jpg"
+
+
+* gradle plugin
+* ant plugin
+* java api
+* commandline tool
+* rest api
