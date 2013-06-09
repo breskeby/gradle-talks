@@ -1,0 +1,18 @@
+def longRunners = []
+test.afterTest { descr, result ->
+  def time = result.endTime - result.startTime
+  if (time > 100) {
+    println("Test: $descr.className is long running.")
+    longRunners << descr.className
+  }
+}
+test.afterSuite { descr, result ->
+  if (!descr.parent) {
+	if (!longRunners.empty) {
+	  def out = file("$buildDir/longrunners.txt")
+  	  logger.lifecycle("Writing long running tests into '$out'.")
+	  out.text = "Long running tests:\n" + longRunners.join('\n')
+	}
+	logger.lifecycle("Completed tests in '$project.name'. Passed: $result.successfulTestCount, failed: $result.failedTestCount, skipped: $result.skippedTestCount.")
+  }
+}

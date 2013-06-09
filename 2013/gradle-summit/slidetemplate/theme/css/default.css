@@ -1241,8 +1241,12 @@ article.smaller q:before, article.smaller q:after {
   bottom: 225px;
 }
 
-.qanda h2 {
+.punchline h2 {
   font-size: 200px;
+}
+
+.punchline h3 {
+  font-size: 180px;
 }
 
 /* line 862, ../scss/default.scss */

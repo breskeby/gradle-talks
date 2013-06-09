@@ -218,6 +218,10 @@ Authors: Eric Bidelman <ebidel@gmail.com>
     </article>
   </slide>
 
+
+<!--
+GRADLE PLUGINS
+-->
   <slide>
 	<hgroup>
       <h2>#1 Gradle Plugin available</h2>
@@ -252,8 +256,40 @@ Authors: Eric Bidelman <ebidel@gmail.com>
   </slide>
 
 <slide>
+    <hgroup>
+      <h2>#1 Gradle Plugin available</h2>
+      <h3>Pros & Cons</h3>
+    </hgroup>
+    <article>
+      <ul class="build">
+		<li>somebody tackled your work already</li>
+		<li>easy to reuse</li>        
+		<li>tested by the community</li>
+      </ul>
+      <ul class="build">
+		<li>might not fit your specific needs</li>
+		<li>you have to deal with its limitations</li>        
+		<li>lack of documentation</li>        
+      </ul>
+    </article>
+  </slide>
+
+<slide>
+    <hgroup>
+      <h2>A plugin portal is coming (promissed!)</h2>
+    </hgroup>
+    <article>
+      <iframe data-src="http://wiki.gradle.org/display/GRADLE/Plugins"></iframe>
+    </article>
+  </slide>
+
+<!--
+ANT TASKS
+-->
+
+<slide>
 	<hgroup>
-      <h2>#2 ANT task available</h2>
+      <h2>#2 Reuse ANT tasks</h2>
     </hgroup>
 	<aside class="note">
       <section>
@@ -262,8 +298,8 @@ Authors: Eric Bidelman <ebidel@gmail.com>
         </ul>
       </section>
     </aside>    
-	<article>
-      <br/><br/><!--fixme-->
+	<article class="flexbox vcenter">
+	<!--fixme-->
       <pre class="prettyprint" data-lang="build.gradle">
 ant {
   ftp(server: "ftp.acme.org", userid: 'me', ...) {
@@ -273,12 +309,14 @@ ant {
     myFileTree.addToAntBuilder(ant, 'fileset')
   }
 </pre>
+<img src="images/ant_lifting.gif" class="reflect" alt="Description" title="Description">
+
     </article>
   </slide>
 
 <slide>
 	<hgroup>
-      <h2>#2 ANT task available</h2>
+      <h2>#2 Reuse ANT tasks</h2>
     </hgroup>
 	<aside class="note">
       <section>
@@ -310,38 +348,113 @@ task ajCompile{
 </pre>
     </article>
   </slide>
-<!--
-}-->
-  
-	
-  <slide>
+
+<slide>
     <hgroup>
-      <h2>Ant task available</h2>
-      <h3>Subtitle Placeholder</h3>
+      <h2>#2 Reuse ANT tasks</h2>
+      <h3>Pros & Cons</h3>
     </hgroup>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>internal ant tasks shipped with the gradle distribution.</li>
+        </ul>
+        <p><b>Remember to say this tag line!</b></p>
+      </section>
+    </aside>
     <article>
-      <p>A list where items build:</p>
       <ul class="build">
-        <li>Pressing 'h' highlights code snippets</li>
-        <li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
-        <li>Pressing 'f' toggles fullscreen viewing</li>
-        <li>Pressing 'w' toggles widescreen</li>
-        <li>Pressing 'o' toggles overview mode</li>
-        <li>Pressing 'ESC' toggles off these goodies</li>
+		<li>first class citizen in Gradle</li>
+		<li>thousands of ant (internal and 3party) tasks already available</li>        
+		<li>tested by the community</li>
+		<li>usually well documented</li>
+		<li>migrating from ant is a no brainer</li>
       </ul>
-      <p>Another list, but items fade as they build:</p>
-      <ul class="build fade">
-        <li>Hover over me!</li>
-        <li>Hover over me!</li>
-        <li>Hover over me!</li>
+      <ul class="build">
+		<li>no incremental task support out of the box</li>
       </ul>
     </article>
   </slide>
 
 <slide>
     <hgroup>
-      <h2>Java Library available</h2>
-      <h3>Subtitle Placeholder</h3>
+      <h2>#2 Reuse ANT tasks</h2>
+      <h3>recommendations</h3>
+    </hgroup>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>model different.</li>
+        </ul>
+        <p><b>Remember to say this tag line!</b></p>
+      </section>
+    </aside>
+    <article>
+      <ul class="build">
+		<li>wrap ant task in a dedicated gradle task implementation</li>
+		<li>model the inputs and outputs of the ant task</li>        
+		<li>1 to 1 mapping does not always makes sense</li>        
+		<li></li>        
+      </ul>
+    </article>
+  </slide>
+
+<!--
+java library is available
+-->
+
+<slide>
+	<hgroup>
+      <h2>#3 Java driver available</h2>
+    </hgroup>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>use (h) for highlighting code</li>
+        </ul>
+      </section>
+    </aside>    
+	<article class="flexbox vcenter">
+<img src="images/duke_saw.png" class="reflect" alt="Description" title="Description">
+    </article>
+  </slide>
+
+
+<slide class="punchline">
+    <article class="flexbox vcenter">
+		<h2>Demo</h2>
+    </article>
+  </slide>
+
+<slide>
+    <hgroup>
+      <h2>#3 Java driver available</h2>
+      <h3>Pros & Cons</h3>
+    </hgroup>
+	<aside class="note">
+      <section>
+        <ul>
+          <li>often high quality</li>
+          <li>very flexible</li>
+          <li>look for convenient groovy layer on top</li>
+        </ul>
+        <p><b>Remember to say this tag line!</b></p>
+      </section>
+    </aside>
+    <article>
+      <ul class="build">
+        <li>offers best flexibility and integration</li>
+        <li>usually high quality</li>
+        <li>sometimes convenient groovy layer available too</li>
+		<li>just grab from maven central</li>
+		<li>modelling tasks and plugins is up to you</li>
+      </ul>
+    </article>
+  </slide>
+
+<slide>
+    <hgroup>
+      <h2>#2 Java Library available</h2>
     </hgroup>
     <article>
       <p>A list where items build:</p>
@@ -362,6 +475,12 @@ task ajCompile{
     </article>
   </slide>
 
+<!--
+command line tool
+- not platform independent
+- installation is up to you
+- flexible
+-->
 <slide>
     <hgroup>
       <h2>Command line tool available</h2>

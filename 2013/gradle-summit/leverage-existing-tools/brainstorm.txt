@@ -6,6 +6,8 @@ topics
 ## migration with liquibase
 ## testing mongodb
 
+> mongod -dbpath db/workingDir &
+
 # other script languages
 (## python, erlang, nodejs, objective-c)
 
