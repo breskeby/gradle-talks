@@ -1,0 +1,15 @@
+def baseVersion = rootProject.file("version.txt").text.trim()	
+allprojects{
+	version = baseVersion
+}
+
+gradle.taskGraph.whenReady{ graph ->
+	if(graph.hasTask(":release")){
+		version = version - "-SNAPSHOT" 	
+	}
+	println "building version '${version}'"
+	allprojects{proj ->
+		proj.version = project.version
+	}
+}
+

@@ -1,0 +1,25 @@
+ext.eclipseProjects = [
+
+"sub1",
+"sub2",
+"sub3",
+"sub4"
+
+]
+
+
+
+/**
+//workaround for jenkins
+task jenkinsTest{
+    inputs.files test.outputs.files
+    doLast{
+        def timestamp = System.currentTimeMillis()
+        test.testResultsDir.eachFile { it.lastModified = timestamp }
+    }
+}
+ 
+build.dependsOn(jenkinsTest)
+*/
+
+

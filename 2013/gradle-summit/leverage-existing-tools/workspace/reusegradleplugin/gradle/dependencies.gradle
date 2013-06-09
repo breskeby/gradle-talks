@@ -1,0 +1,18 @@
+
+//add artifacts here that have changed names.
+def renamedLibs = [
+"servlet-api":"javax.servlet-api"
+]
+
+allprojects{
+	configurations.all {
+		resolutionStrategy {
+	     eachDependency { details ->
+	       def renamedLib = renamedLibs[details.requested.name]
+			if(renamedLib){
+				details.useTarget group: details.requested.group, name: renamedLib, version: details.requested.version		
+			}
+	     }
+	   }
+	 }	
+}
