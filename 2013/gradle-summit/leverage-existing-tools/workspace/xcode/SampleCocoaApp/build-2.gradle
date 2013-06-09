@@ -1,0 +1,20 @@
+apply plugin:'base'
+
+//######### STEP 1 // build app
+class Xc extends Exec{
+	public Xc(){
+		commandLine "xctool.sh" 
+		args "-project", "${project.name}.xcodeproj"
+		args "-scheme", project.name
+		args "BUILD_ROOT=${project.buildDir}"			
+		args "TARGET_BUILD_DIR=${project.buildDir}/xctarget"
+	}
+}
+
+task cleanXc(type:Xc){
+	args "clean"
+}
+
+task buildXc(type:Xc){
+	args "build"
+}
