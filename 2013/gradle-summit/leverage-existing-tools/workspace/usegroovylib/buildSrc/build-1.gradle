@@ -1,0 +1,36 @@
+apply plugin:'groovy'
+apply plugin:'idea'
+
+repositories{
+	mavenCentral()
+}
+
+dependencies{
+	compile gradleApi()
+	compile localGroovy()
+	compile 'com.gmongo:gmongo:0.9.3'
+	compile 'org.mongodb:mongo-java-driver:2.11.1'	
+}
+
+/*
+
+DB db;
+
+void beforeSuite(TestDescriptor suite){
+    if(suite.parent==null){
+        def mongo = new GMongo()
+        db = mongo.getDB("testresultarchive")
+    }
+}
+
+@Override
+void afterTest(TestDescriptor testDescriptor, TestResult testResult) {
+    db.testresults.insert([testName: "$testDescriptor", result:"${testResult.resultType}", duration:"${testResult.endTime - testResult.startTime} ms"])
+}
+
+...
+
+test.addTestListener(new MongoDBTestReporter())
+
+*/
+
