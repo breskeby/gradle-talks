@@ -120,28 +120,37 @@ MyProject -> Basic Coverage -> macosx 1.7
 
 # GO - Screenshot
 
-# Sonar
-* zoom screen
-* show nemo (http://nemo.sonarsource.org)
-	* mention plugins (C++, Erlang, PL/SQL)
-	* eclipse plugins
-* show Active-MQ
-* show history graph in dashboard
-* open petclinic sample
-* configure sonar
-    
-    //sonarRunner {
-    //    sonarProperties {
-    //        property "sonar.host.url", "http://localhost:9000"
-    //        property "sonar.jdbc.url", "jdbc:h2:tcp://localhost:9092/sonar"
-    //        property "sonar.jdbc.driverClassName", "org.hibernate.dialect.H2Dialect"
-    //        property "sonar.jdbc.username", "sonar"
-    //        property "sonar.jdbc.password", "sonar"
-    //    }
-    //}
 
+	# drone.io demo
+	-> clear all projects
+	-> show drone.io
+	-> vorteil:
+		- gute ui
+		- support for bitbucket, github, goodle-code
+	* login via github
+	* select sampleproject
+	* configure via wrapper
 
-//TODO
+	# Sonar
+	* zoom screen
+	* show nemo (http://nemo.sonarsource.org)
+		* mention plugins (C++, Erlang, PL/SQL)
+		* eclipse plugins
+	* show Active-MQ
+	* show history graph in dashboard
+	* open petclinic sample
+	* configure sonar
+
+	    //sonarRunner {
+	    //    sonarProperties {
+	    //        property "sonar.host.url", "http://localhost:9000"
+	    //        property "sonar.jdbc.url", "jdbc:h2:tcp://localhost:9092/sonar"
+	    //        property "sonar.jdbc.driverClassName", "org.hibernate.dialect.H2Dialect"
+	    //        property "sonar.jdbc.username", "sonar"
+	    //        property "sonar.jdbc.password", "sonar"
+	    //    }
+	    //}
+
 * gradlew tasks
 * "gradlew sonarRunner"
 * show console
@@ -149,24 +158,20 @@ MyProject -> Basic Coverage -> macosx 1.7
 * enable jacoco
 * "gradlew check sonarRunner"
 
-# drone.io demo
--> clear all projects
--> show drone.io
--> vorteil:
-	- gute ui
-	- support for bitbucket, github, goodle-code
-* login via github
-* select sampleproject
-* configure via wrapper
+#TODO
+
+## jrebel
+-> use petclinic
+
+-- build.gradle --
+
+------------------
 
 
-# jrebel
-
-# deployment
+## deployment
 ## bintray
 ## liverebel
-
-# vagrant
+## vagrant
 
 #credits
 * jungle.jpg (http://www.flickr.com/photos/geographyalltheway_photos/4168656319)
