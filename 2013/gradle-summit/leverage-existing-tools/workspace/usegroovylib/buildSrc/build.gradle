@@ -1,13 +1,6 @@
 apply plugin:'groovy'
-apply plugin:'idea'
-
-repositories{
-	mavenCentral()
-}
 
 dependencies{
 	compile gradleApi()
 	compile localGroovy()
-	compile 'com.gmongo:gmongo:0.9.3'
-	
 }
