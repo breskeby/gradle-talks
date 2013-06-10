@@ -1,0 +1,24 @@
+
+import org.apache.tools.ant.filters.ReplaceTokens
+processResources{
+	inputs.property("version", version)
+	inputs.property("projName", project.name)
+	
+	filter(ReplaceTokens, tokens:[projName:project.name, projVersion:version])
+}
+
+def liveRebelPickupDir = "/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/gradle-summit/dev-ecosystem/tools/liverebel/auto-import"
+task pushToLiveRebel(type:Copy){
+	from war
+	into liveRebelPickupDir
+}
+
+/**
+src/main/resources/liverebel.xml
+
+<application>
+  <name>@projName@</name>
+  <version>@projVersion@</version>
+</application>
+
+*/
