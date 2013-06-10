@@ -17,6 +17,9 @@ topics
 * google for "'xcodebuild' replacement for ci"
 * install via gradle
 * https://github.com/facebook/xctool
+
+/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/gradle-summit/leverage-existing-tools/workspace/xcode/SampleCocoaApp/SampleCocoaApp
+
 -> xctool.sh -project SomeGradleBuiltMacosXApp.xcodeproj -scheme SomeGradleBuiltMacosXApp test
 
 # macports update (?)
