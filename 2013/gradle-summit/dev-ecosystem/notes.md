@@ -120,8 +120,7 @@ MyProject -> Basic Coverage -> macosx 1.7
 
 # GO - Screenshot
 
-
-	# drone.io demo
+# drone.io demo
 	-> clear all projects
 	-> show drone.io
 	-> vorteil:
@@ -161,12 +160,34 @@ MyProject -> Basic Coverage -> macosx 1.7
 #TODO
 
 ## jrebel
+
+###DEMO
+---
+remove zeroturnaround plugin from cache
+---
+> mate . (in petclinic)
+> show build.gradle
+--> apply zeroturnaround plugin
+> gradlew tasks
+> gradlew generateRebel
+> gradlew jettyRun
+	 -> monitoring
+	 -> show available plugins
+	
+> open localhost:9123/petclinic
+
+--> open idea
+--> fix welcome message (messages.properties)
+--> gradle classes
+--> reload petclinic in browser
+--> create owner (Rene, G. / at the hyatt / santa clara)
+
+> change 
 -> use petclinic
 
 -- build.gradle --
 
 ------------------
-
 
 ## deployment
 ## bintray

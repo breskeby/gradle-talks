@@ -2,7 +2,7 @@ var SLIDE_CONFIG = {
   // Slide settings
   settings: {
     title: 'Leverage existing Tools <br>in Gradle',
-    subtitle: 'Patterns, best practices, examples',
+    subtitle: 'Patterns, (best) practices, examples',
     eventTitle: 'Gradle Summit 2013',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
