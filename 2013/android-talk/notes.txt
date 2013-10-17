@@ -129,7 +129,7 @@ h1 product flavour
 	* versionCodeName
 	* signing info
 
-// multiple versions (free + payd in one project -- no multiproject build)
+// multiple versions (free + payed in one project -- no multiproject build)
 // code + resources overlay
 	- biggest chunk in src/main/java
 	- specific code + resources for payd and free

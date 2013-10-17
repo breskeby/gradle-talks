@@ -1,10 +1,13 @@
 <!--
+Gradle Summit Slide Template based on 
+
 Google IO 2012/2013 HTML5 Slide Template
+URL: https://code.google.com/p/io-2012-slides
 
 Authors: Eric Bidelman <ebidel@gmail.com>
          Luke Mahé <lukem@google.com>
-
-URL: https://code.google.com/p/io-2012-slides
+		 Rene Groeschke <rene.groeschke@gradleware.com>
+		
 -->
 <!DOCTYPE html>
 <html>
@@ -28,12 +31,12 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide class="logoslide nobackground">
     <article class="flexbox vcenter">
-      <span><img src="images/google_developers_logo.png"></span>
+      <span><img src="images/gradle.png"></span>
     </article>
   </slide>
 
   <slide class="title-slide segue nobackground">
-    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <aside class="gdbar"><img src="images/logo_transparent.gif"></aside>
     <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
@@ -126,12 +129,12 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Code Slide (Smaller Font)</h2>
     </hgroup>
     <article class="smaller">
-      <pre class="prettyprint" data-lang="javascript">
+      <pre class="prettyprint" data-lang="java">
 // Say hello world until the user starts questioning
 // the meaningfulness of their existence.
-function helloWorld(world) {
-  for (var i = 42; --i &gt;= 0;) {
-    alert('Hello ' + String(world));
+public void helloWorld(String world) {
+  for (int i = 42; --i &gt;= 0;) {
+    System.out.println("Hello " + world);
   }
 }
 </pre>
@@ -333,7 +336,7 @@ function helloWorld(world) {
   </slide>
 
   <slide class="segue dark nobackground">
-    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <aside class="gdbar"><img src="images/gradleware_gear.png"></aside>
     <hgroup class="auto-fadein">
       <h2>Segue Slide</h2>
       <h3>Subtitle Placeholder</h3>
@@ -348,7 +351,7 @@ function helloWorld(world) {
   </slide>
 
   <slide class="segue dark quote nobackground">
-    <aside class="gdbar right bottom"><img src="images/google_developers_icon_128.png"></aside>
+    <aside class="gdbar right bottom"><img src="images/gradleware_gear.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <q>
         This is an example of quote text.
@@ -375,8 +378,14 @@ function helloWorld(world) {
     </article>
   </slide>
 
+  <slide class="punchline">
+    <article class="flexbox vcenter">
+		<h2>Q&A</h2>
+    </article>
+  </slide>
+
   <slide class="thank-you-slide segue nobackground">
-    <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
+    <aside class="gdbar right"><img src="images/gradleware_gear.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Thank You!&gt;</h2>
       <p>Important contact information goes here.</p>
@@ -388,7 +397,7 @@ function helloWorld(world) {
 
   <slide class="logoslide dark nobackground">
     <article class="flexbox vcenter">
-      <span><img src="images/google_developers_logo_white.png"></span>
+      <span><img src="images/gradle.png"></span>
     </article>
   </slide>
 

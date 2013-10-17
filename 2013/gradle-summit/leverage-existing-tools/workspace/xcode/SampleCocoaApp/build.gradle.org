@@ -1,0 +1,74 @@
+apply plugin:'base'
+
+//######### STEP 1 // build app
+task cleanCocoa << {
+	exec{
+		commandLine "xctool.sh" 
+		args "-project", "${project.name}.xcodeproj"
+		args "-scheme", project.name
+		args "BUILD_DIR=${project.file('build')}"
+		args "TARGET_BUILD_DIR=${project.file('build')}"
+		
+		args "clean"	
+	}
+}
+
+task buildCocoa << {
+	exec{
+		commandLine "xctool.sh" 
+		args "-project", "${project.name}.xcodeproj"
+		args "-scheme", project.name
+		args "BUILD_DIR=${project.file('build')}"
+		args "TARGET_BUILD_DIR=${project.file('build')}"
+		
+		args "build"	
+	}
+}
+
+// 
+class XcTool extends DefaultTask{
+	@Input List arguments = []
+	boolean ignoreExitValue =false
+	OutputStream outputStream;
+	ExecResult result;
+	@TaskAction void build(){
+		outputStream = new ByteArrayOutputStream()
+		def result = project.exec{
+			commandLine "xctool.sh" 
+			args "-project", "${project.name}.xcodeproj"
+			args "-scheme", project.name
+			args "BUILD_DIR=${project.file('build')}"
+			args "TARGET_BUILD_DIR=${project.file('build')}"
+			args arguments
+			standardOutput = outputStream
+			ignoreExitValue = ignoreExitValue
+		}		
+	}
+}
+
+class XcToolTest extends XcTool{
+	
+	public XcToolTest(){
+		ignoreExitValue = false
+	}
+	@TaskAction void build(){
+		arguments.addAll(["test", "-reporter", "junit"])
+		
+		super.build()
+		def reportDir = project.file("build/reports/")
+		reportDir.mkdirs()
+		new File(reportDir, "tests.xml").text = new String(outputStream.toByteArray())
+	}
+	
+}
+
+class XcToolBuild extends XcTool{
+	
+	@TaskAction void build(){
+		arguments.addAll(["build"])
+		super.build()
+	}
+}
+
+//task test(type:XcToolTest)
+//task build(type:XcToolBuild, dependsOn:test)

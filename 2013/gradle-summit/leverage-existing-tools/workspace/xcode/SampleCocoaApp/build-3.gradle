@@ -1,0 +1,38 @@
+apply plugin:'base'
+
+tasks.addRule("Pattern: <action>XC") { String taskName ->
+    if (taskName.endsWith("XC")) {
+        task(taskName, type:Xc){
+			args(taskName - 'XC')
+        }
+    }
+}
+
+class Xc extends Exec{
+	public Xc(){
+		commandLine "xctool.sh" 
+		args "-project", "${project.name}.xcodeproj"
+		args "-scheme", project.name
+		args "BUILD_ROOT=${project.buildDir}"			
+		args "TARGET_BUILD_DIR=${project.buildDir}/xctarget"
+	}
+}
+
+testXC{
+	ext.reportDir = new File(buildDir, "test-report")
+	def testOutputStream;
+	doFirst{
+		testOutputStream = new ByteArrayOutputStream()
+		standardOutput = testOutputStream
+		ignoreExitValue = true		
+		args "-reporter", "junit"
+	}
+	
+	doLast{
+		reportDir.mkdirs()
+		new File(reportDir, "tests.xml").text = new String(testOutputStream.toByteArray(), "utf-8")
+		if(execResult.exitValue!=0){
+			throw new GradleException("Cocoa Test Execution Failed")
+		}
+	}
+}

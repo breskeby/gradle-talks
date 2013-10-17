@@ -1,0 +1,30 @@
+topics to cover
+# IDEs
+## netbeans
+## idea
+## eclipse 
+## textmate
+
+# Build Server
+## teamcity
+## jenkins
+## bamboo
+
+#artifact server
+## nexus
+## artifactory
+
+#jrebel
+#sonar
+
+# cloud build tools
+## buildhive
+## travis-ci
+
+# trello
+# jira
+
+(# vagrant)
+
+(# github)
+

@@ -1,0 +1,46 @@
+topics
+# documentation
+## asciidoc
+
+# database
+## migration with liquibase
+## testing mongodb
+
+> mongod -dbpath db/workingDir &
+
+# other script languages
+(## python, erlang, nodejs, objective-c)
+
+#objective-c
+
+* 'xcodebuild' very basic not very command line friendly/reusable
+* google for "'xcodebuild' replacement for ci"
+* install via gradle
+* https://github.com/facebook/xctool
+
+/Users/Rene/gradleware/github/breskeby/private-gradle-talks/2013/gradle-summit/leverage-existing-tools/workspace/xcode/SampleCocoaApp/SampleCocoaApp
+
+-> xctool.sh -project SomeGradleBuiltMacosXApp.xcodeproj -scheme SomeGradleBuiltMacosXApp test
+
+# macports update (?)
+
+# ant tasks
+## ftp
+# Amazon S3
+
+# GIT
+# remote jenkins triggering
+
+# notification (example on include http service)
+## pushover notification (https://gist.github.com/huxi/5622330)
+## eMail
+
+## 
+"screencapture -w -W -i ~/Desktop/capture.jpg"
+
+
+* gradle plugin
+* ant plugin
+* java api
+* commandline tool
+* rest api

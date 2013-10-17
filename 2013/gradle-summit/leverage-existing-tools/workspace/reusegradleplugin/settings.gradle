@@ -1,0 +1,25 @@
+
+
+ext.eclipseProjects = []
+if(file("gradle/eclipseSetup.gradle").exists()){
+	apply from:"gradle/eclipseSetup.gradle"	
+}
+
+def projectNames = [
+//projectName : projectpfad
+
+"sub1":"sub1", 
+"sub2":"sub2",
+
+
+]
+
+projectNames.each { projName, projPath ->
+  if(projName in eclipseProjects) {
+    //println "project $projName is internal to this build"
+    include projName
+	project(":$projName").projectDir = file(projPath)
+  } else {
+    //println "project $projName is external to this build"
+  }
+}
