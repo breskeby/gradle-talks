@@ -66,7 +66,9 @@
 			<aside class="note">
 		      <section>
 		        <ul>
-					<li>What's the motivation of this talk</li></ul>
+					<li>What's the motivation of this talk</li>
+                   	<li>Is there a release plugin</li>
+            	</ul>
 		      </section>
 		    </aside>
 		<!--TODO style better -->
@@ -76,23 +78,30 @@
 		  </slide>
 
 		<slide>
+      <aside class="note">
+          <section>
+            <ul>
+          <li>anything else on your wiki</li></ul>
+          </section>
+        </aside>
 			  <hgroup>
 		      <h2>When doing a Release</h2>
 		    </hgroup>
 		    <article>
 		      <ul class="build">
-            <li>deal with your vcs (tagging, branching)</li>
+				<li>update your project version</li>
+            	<li>deal with your vcs (tagging, branching)</li>
 		        <li>rollback if build failed</li>
-            <li>double check your dependencies</li>
-            <li>update your project version</li>
-            <li>publish the released distribution</li>
-            <li>what else is listed in your wiki?</ul>
+            	<li>double check your dependencies</li>
+            	<li>publish/deploy the released distribution</li>
+            	<li>interact with your issue tracker</li>
+				<li>...</ul>
 		    </article>
 		  </slide>
 
 		<slide>
 		    <article class="flexbox vcenter">
-				<h3>manually?</h3>
+				<h3>releasing manually?</h3>
 	      <p>
           <video id="MY_VIDEO_1" class="video-js vjs-default-skin" controls muted
               preload="auto" width="630" height="360" poster="img/watermelon.png" data-setup="{}">
@@ -109,10 +118,12 @@
 
 
   <slide class="punchline">
-  <aside class="note">
+    <aside class="note">
       <section>
         <ul>
-      <li>What's the motivation of this talk</li></ul>
+          <li>libgdx application</li>
+          <li>cross platform (android, desktop, ios, html5)</li>
+        </ul>
       </section>
     </aside>
 <!--TODO style better -->
@@ -131,8 +142,8 @@
             // not optimal
             version = "1.1-SNAPSHOT"
 
-            // a bit better
-            version = file(version.txt).text
+            // better
+            version = file("version.txt").text
             ...
         </pre>
       </article>
@@ -145,7 +156,7 @@
     <article>
       <br/><br/>
         <pre class="prettyprint" data-lang="build.gradle">
-            version = new MyVersion()
+            version = MyVersion.load(file("version.properties"))
 
             class MyVersion {
                 int major, minor, bugfix, build
@@ -153,11 +164,33 @@
                 String toString(){
                     "${major}.${minor}.${bugfix}.${build}"
                 }
+
+                static MyVersion load(File versionInfoFile){
+                  ...
+                  ...
+                }
             }
       </pre>
       </article>
     </slide>
+
+
+	  <slide class="punchline">
+	    <article class="flexbox vcenter">
+	    <h2>puzzle #1</h2><br/><br/><br/>
+	    <h5>a (major|minor|bugfix) release</h5>
+	    </article>
+	  </slide>
+	
     <slide>
+      <aside class="note">
+        <section>
+          <ul>
+            <li>use existing plugins</li>
+            <li>gradle plugins leveraging jgit, svnkit</li>
+          </ul>
+        </section>
+      </aside>
     <hgroup>
       <h2>interacting with your vcs (option 1)</h2>
     </hgroup>
@@ -183,6 +216,7 @@
     </slide>
   </slide>
     <slide>
+		
     <hgroup>
       <h2>interacting with your vcs (option 2)</h2>
     </hgroup>
@@ -196,7 +230,18 @@
       </article>
     </slide>
   </slide>
+
+	
+
       <slide>
+		<aside class="note">
+	        <section>
+	          <ul>
+	            <li>no 3 party library needed</li>
+	            <li>no preinstalled software needed</li>
+	          </ul>
+	        </section>
+	      </aside>
       <hgroup>
         <h2>sidenote: reading branch/commit via file io</h2>
       </hgroup>
@@ -208,6 +253,13 @@
         </pre>
         </article>
       </slide>
+
+	<slide class="punchline">
+	    <article class="flexbox vcenter">
+	    <h2>puzzle #2</h2><br/><br/><br/>
+	    <h5>a clean working copy</h5>
+	    </article>
+	  </slide>
 
 
 
