@@ -314,6 +314,12 @@ slides > slide:not(.nobackground):before {
   height: 30px;
   line-height: 1.9;
 }
+
+.thank-you-slide {
+  background: #acd180 !important;
+  color: white;
+}
+
 /* line 183, ../scss/default.scss */
 slides > slide:not(.nobackground):after {
   font-size: 12pt;
