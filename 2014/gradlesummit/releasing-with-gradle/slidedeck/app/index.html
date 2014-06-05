@@ -1,143 +1,155 @@
 <!doctype html>
 <html lang="en" ng-app="phonecatApp">
 <head>
-  <meta charset="utf-8">
-  <title>Gradle Snippets Gallery</title>
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" media="all" href="css/theme/css/default.css">
-  <link href="http://vjs.zencdn.net/4.6/video-js.css" rel="stylesheet">
-<script src="http://vjs.zencdn.net/4.6/video.js"></script>
-  <script src="lib/jquery/jquery-1.10.2.js"></script>
-  <script src="lib/angular/angular.js"></script>
-  <script src="lib/angular/angular-animate.js"></script>
-  <script src="lib/angular/angular-resource.js"></script>
-  <script src="lib/angular/angular-route.js"></script>
+    <meta charset="utf-8">
+    <title>Gradle Snippets Gallery</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" media="all" href="css/theme/css/default.css">
+    <link href="http://vjs.zencdn.net/4.6/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/4.6/video.js"></script>
+    <script src="lib/jquery/jquery-1.10.2.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-animate.js"></script>
+    <script src="lib/angular/angular-resource.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
 
-  <script src="js/app.js"></script>
-  <script src="js/animations.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/services.js"></script>
-  <script data-main="js/slidedeck/slides" src="js/slidedeck/require-1.0.8.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/services.js"></script>
+    <script data-main="js/slidedeck/slides" src="js/slidedeck/require-1.0.8.min.js"></script>
 
 </head>
 <body>
- <!-- <div class="view-container">
-    <div ng-view class="view-frame">
-	 -->
-	 <div>
-	    <div>
-		<slides class="layout-widescreen">
-		  <slide class="logoslide nobackground">
-		    <article class="flexbox vcenter">
-		      <span><img src="img/gradle.png"></span>
-		    </article>
-		  </slide>
-
-		  <slide class="title-slide segue nobackground">
-			<aside class="note">
-		      <section>
-		        <ul>
-					<li>I think we should get started
-					<li>Welcome to the last session before pizza
-					<li>my name is rene, working for gradleware and I’ll talk about about leveraging existing tools using gradle
-					     <ul>
-							<li>we'll talk about some integration patterns & best practices for integrating thirdparty tools
-					     <li>prepared some demos
-					     <li>hopefully we have some time left at the end for Q&A
-					          <li>if you have questions, ask them
-					          <li>if you want to make a remark, do it
-					          <li>if you disagree, raise your voice.</li></ul>
-		        		</ul></ul>
-		      </section>
-		    </aside>
-		    <aside class="gdbar"><img src="img/logo_transparent.gif"></aside>
-		    <hgroup class="auto-fadein">
-		      <h1 data-config-title><!-- populated from slide_config.json --></h1>
-		      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
-		      <p data-config-presenter><!-- populated from slide_config.json --></p>
-		    </hgroup>
-		  </slide>
-
-
-		<slide class="punchline">
-			<aside class="note">
-		      <section>
-		        <ul>
-					<li>What's the motivation of this talk</li>
-                   	<li>Is there a release plugin</li>
-            	</ul>
-		      </section>
-		    </aside>
-		<!--TODO style better -->
-		    <article class="flexbox vcenter">
-				<h3>Motivation</h3>
-		    </article>
-		  </slide>
-
-		<slide>
-      <aside class="note">
-          <section>
-            <ul>
-          <li>anything else on your wiki</li></ul>
-          </section>
-        </aside>
-			  <hgroup>
-		      <h2>When doing a Release</h2>
-		    </hgroup>
-		    <article>
-		      <ul class="build">
-				<li>update your project version</li>
-            	<li>deal with your vcs (tagging, branching)</li>
-		        <li>rollback if build failed</li>
-            	<li>double check your dependencies</li>
-            	<li>publish/deploy the released distribution</li>
-            	<li>interact with your issue tracker</li>
-				<li>...</ul>
-		    </article>
-		  </slide>
-
-		<slide>
-		    <article class="flexbox vcenter">
-				<h3>releasing manually?</h3>
-	      <p>
-          <video id="MY_VIDEO_1" class="video-js vjs-default-skin" controls muted
-              preload="auto" width="630" height="360" poster="img/watermelon.png" data-setup="{}">
-                <source src="../videos/watermelon.mp4" type="video/mp4">
-          </video>
-        </p>
-	    </article>
-		  </slide>
-      <slide class="punchline">
-          <article class="flexbox vcenter">
-          <span><img src="img/betterreleaseday.gif" with="500" height="500"></span>
-          </article>
-      </slide>
-
-
-  <slide class="punchline">
-    <aside class="note">
-      <section>
-        <ul>
-          <li>libgdx application</li>
-          <li>cross platform (android, desktop, ios, html5)</li>
-        </ul>
-      </section>
-    </aside>
-<!--TODO style better -->
+<!-- <div class="view-container">
+   <div ng-view class="view-frame">
+    -->
+<div>
+<div>
+<slides class="layout-widescreen">
+<slide class="logoslide nobackground">
     <article class="flexbox vcenter">
-    <h3>demo app</h3>
+        <span><img src="img/gradle.png"></span>
     </article>
-  </slide>
+</slide>
 
-    <slide>
+<slide class="title-slide segue nobackground">
+    <aside class="note">
+        <section>
+            <ul>
+                <li>I think we should get started</li>
+                <li>Welcome everybody to this talk and welcome again to the 2nd gradle summit</li>
+                <li>2words about myself, rene, working for gradleware for 2 1/2 years</li>
+                <li>spent most of my time on gradle code base or supporting customers with their build automation</li>
+
+                <li>today talking about releasing with gradle</li>
+                <ul>
+                    <li>slides with some snippets</li>
+                    <li>some small puzzles</li>
+                    <li>practices, best practices (I'm careful with that term)</li>
+                    <li>hopefully we have some time left at the end for Q&A
+                    <li>if you have questions, ask them
+                    <li>if you want to make a remark, do it
+                    <li>if you disagree, raise your voice.</li>
+                </ul>
+            </ul>
+            </ul>
+        </section>
+    </aside>
+    <aside class="gdbar"><img src="img/logo_transparent.gif"></aside>
+    <hgroup class="auto-fadein">
+        <h1 data-config-title><!-- populated from slide_config.json --></h1>
+
+        <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+
+        <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+</slide>
+
+
+<slide class="punchline">
+    <aside class="note">
+        <section>
+            <ul>
+                <li>What's the motivation of this talk</li>
+                <li>Is there a release plugin</li>
+            </ul>
+        </section>
+    </aside>
+    <!--TODO style better -->
+    <article class="flexbox vcenter">
+        <h3>Motivation</h3>
+    </article>
+</slide>
+
+<slide>
+    <aside class="note">
+        <section>
+            <ul>
+                <li>anything else on your wiki</li>
+            </ul>
+        </section>
+    </aside>
     <hgroup>
-      <h2>declaring a project version</h2>
+        <h2>When doing a Release</h2>
     </hgroup>
     <article>
-      <br/><br/>
+        <ul class="build">
+            <li>update your project version</li>
+            <li>deal with your vcs (tagging, branching)</li>
+            <li>publish/deploy the released distribution</li>
+            <li>interact with your issue tracker</li>
+            <li>double check your dependencies</li>
+            <li>rollback if build failed</li>
+            <li>...</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <article class="flexbox vcenter">
+        <h3>releasing manually?</h3>
+
+        <p>
+            <video id="MY_VIDEO_1" class="video-js vjs-default-skin" controls muted
+                   preload="auto" width="630" height="360" poster="img/watermelon.png" data-setup="{}">
+                <source src="../videos/watermelon.mp4" type="video/mp4">
+            </video>
+        </p>
+    </article>
+</slide>
+<slide class="punchline">
+    <article class="flexbox vcenter">
+        <span><img src="img/betterreleaseday.gif" with="500" height="500"></span>
+    </article>
+</slide>
+
+
+<slide class="punchline">
+    <aside class="note">
+        <section>
+            <ul>
+                <li>libgdx application</li>
+                <li>cross platform (android, desktop, ios, html5)</li>
+            </ul>
+        </section>
+    </aside>
+    <!--TODO style better -->
+    <article class="flexbox vcenter">
+        <h3>demo app</h3>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>project versioning</h2>
+    </hgroup>
+    <article>
+        <p>declaring a project version</p>
+        <br/><br/>
         <pre class="prettyprint" data-lang="build.gradle">
             // not optimal
             version = "1.1-SNAPSHOT"
@@ -146,15 +158,16 @@
             version = file("version.txt").text
             ...
         </pre>
-      </article>
-    </slide>
+    </article>
+</slide>
 
-    <slide>
+<slide>
     <hgroup>
-      <h2>put some semantics in your project version!</h2>
+        <h2>project versioning (2)</h2>
     </hgroup>
     <article>
-      <br/><br/>
+        <p>put some semantics in your project version!</p>
+        <br/><br/>
         <pre class="prettyprint" data-lang="build.gradle">
             version = MyVersion.load(file("version.properties"))
 
@@ -164,38 +177,34 @@
                 String toString(){
                     "${major}.${minor}.${bugfix}.${build}"
                 }
-
-                static MyVersion load(File versionInfoFile){
-                  ...
-                  ...
-                }
+                ...
             }
       </pre>
-      </article>
-    </slide>
+    </article>
+</slide>
 
 
-	  <slide class="punchline">
-	    <article class="flexbox vcenter">
-	    <h2>puzzle #1</h2><br/><br/><br/>
-	    <h5>a (major|minor|bugfix) release</h5>
-	    </article>
-	  </slide>
-	
-    <slide>
-      <aside class="note">
+<slide class="punchline">
+    <article class="flexbox vcenter">
+        <h2>puzzle #1</h2><br/><br/><br/>
+        <h5>a (major|minor|bugfix) release</h5>
+    </article>
+</slide>
+
+<slide>
+    <aside class="note">
         <section>
-          <ul>
-            <li>use existing plugins</li>
-            <li>gradle plugins leveraging jgit, svnkit</li>
-          </ul>
+            <ul>
+                <li>use existing plugins</li>
+                <li>gradle plugins leveraging jgit, svnkit</li>
+            </ul>
         </section>
-      </aside>
+    </aside>
     <hgroup>
-      <h2>interacting with your vcs (option 1)</h2>
+        <h2>source versioning</h2>
     </hgroup>
     <article>
-      <br/><br/>
+        <p>interacting with your vcs (option 1)</p>
         <pre class="prettyprint" data-lang="build.gradle">
             buildscript {
                 repositories { jcenter() }
@@ -205,183 +214,288 @@
             import org.ajoberstar.grgit.*
             ext.repo = Grgit.open(file('.'))
 
-            task tagRelease << {
+            <b>task tagRelease << {
                 repo.tag.add {
                   name = version
                   message = "Release of ${version}"
                 }
-            }
+            }</b>
       </pre>
-      </article>
-    </slide>
-  </slide>
-    <slide>
-		
+    </article>
+</slide>
+</slide>
+<slide>
     <hgroup>
-      <h2>interacting with your vcs (option 2)</h2>
+        <h2>source versioning (2)</h2>
     </hgroup>
     <article>
-      <br/><br/>
+        <p>interacting with your vcs (option 2)</p>
+        <br/><br/>
         <pre class="prettyprint" data-lang="build.gradle">
      task tagGitWorkspace(type:Exec){
          commandLine 'git', 'tag', project.version.toString()
      }
       </pre>
-      </article>
-    </slide>
-  </slide>
+    </article>
+</slide>
+</slide>
 
-	
 
-      <slide>
-		<aside class="note">
-	        <section>
-	          <ul>
-	            <li>no 3 party library needed</li>
-	            <li>no preinstalled software needed</li>
-	          </ul>
-	        </section>
-	      </aside>
-      <hgroup>
-        <h2>sidenote: reading branch/commit via file io</h2>
-      </hgroup>
-      <article>
+<slide>
+    <aside class="note">
+        <section>
+            <ul>
+                <li>no 3 party library needed</li>
+                <li>no preinstalled software needed</li>
+            </ul>
+        </section>
+    </aside>
+    <hgroup>
+        <h2>source versioning (3)</h2>
+    </hgroup>
+    <article>
+        <p>sidenote: reading branch/commit via file io</p>
         <br/><br/>
           <pre class="prettyprint" data-lang="build.gradle">
        def branch = file(".git/HEAD").text - "ref: refs/heads/"
        def commitId = file(".git/refs/heads/$branch").text
         </pre>
-        </article>
-      </slide>
+    </article>
+</slide>
 
-	<slide class="punchline">
-	    <article class="flexbox vcenter">
-	    <h2>puzzle #2</h2><br/><br/><br/>
-	    <h5>a clean working copy</h5>
-	    </article>
-	  </slide>
+<slide class="punchline">
+    <article class="flexbox vcenter">
+        <h2>puzzle #2</h2><br/><br/><br/>
+        <h5>a clean working copy</h5>
+    </article>
+</slide>
 
-	<slide>
-		<aside class="note">
-	        <section>
-	          <ul>
-	            <li></li>
-	            <li></li>
-	          </ul>
-	        </section>
-	      </aside>
-      <hgroup>
+<slide>
+    <aside class="note">
+        <section>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+    </aside>
+    <hgroup>
         <h2>connect your issue tracker</h2>
-      </hgroup>
-      	<article>
-	      <ul class="build">
-			<li>keep version stati in sync</li>
-    		<li>document tackled issues</li>
-	        <li>check project status</li>
-			<li>...</li></ul>
-	    </article>
-      </slide>
-	  <slide class="punchline">
-          <article class="flexbox vcenter">
-          <span><img src="img/releasenotes.png" with="500" height="550"></span>
-          </article>
-      </slide>
+    </hgroup>
+    <article>
+        <p>worth the effort</p>
+        <ul class="build">
+            <li>keep version stati in sync</li>
+            <li>document tackled issues</li>
+            <li>check project status</li>
+            <li>...</li>
+        </ul>
+    </article>
+</slide>
+<slide class="punchline">
+    <article class="flexbox vcenter">
+        <span><img src="img/releasenotes.png" with="500" height="550"></span>
+    </article>
+</slide>
 
-	<slide>
-		<aside class="note">
-	        <section>
-	          <ul>
-	            <li></li>
-	            <li></li>
-	          </ul>
-	        </section>
-	      </aside>
-      <hgroup>
+<slide>
+    <aside class="note">
+        <section>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+    </aside>
+    <hgroup>
         <h2>connect your issue tracker (2)</h2>
-      </hgroup>
-      	<article>
-	      <ul class="build">
-			<li>explore the API of your tool of choice!</li>
-			<li>jira, youtrack, github</li>
-			<li>REST is your friend</li>
-    		<li>REST is easy with gradle & groovy</li>
-			<li>...</li></ul>
-	    </article>
-      </slide>
-	  <slide class="punchline">
-		    <article class="flexbox vcenter">
-				<article>
-			      <ul class="build">
-					<li>"But we have a custom (inhouse) tool!?"</li>
-					<li>GET RID OF IT!</li>
-				</ul>
-			    </article>
-		    </article>
-		  </slide>
-		<slide class="punchline">
-		    <article class="flexbox vcenter">
-		    <h2>puzzle #3</h2><br/><br/><br/>
-		    <h5>connect your issue tracker</h5>
-		    </article>
-		  </slide>
-		
-	<slide>
-      <aside class="note">
-        </aside>
-			<hgroup>
-		      <h2>references and pointers</h2>
-		    </hgroup>
-		    <article>
-		      <ul>
-				<li><a href="http://www.gradle.org">gradle.org</a></li>
-				<li><a href="http://www.gradleware.com">gradleware.com</a></li>
-				<li><a href="https://github.com/zafarkhaja/java-semver">semantic version library</a></li>
-            	<li><a href="https://github.com/ajoberstar/gradle-git">Gradle-Git Plugin (more than just a <b>git</b> plugin)</a>
-				<li><a href="https://code.google.com/p/gradle-wdc-plugins/wiki/GradleSvnKitPlugin">Gradle SVN Kit plugin</a></li>
-            	<li>publish/deploy the released distribution</li>
-            	<li>interact with your issue tracker</li>
-				<li>...</ul>
-		    </article>
-		  </slide>
-		
-	
-		<slide class="thank-you-slide segue nobackground">
-		    <aside class="gdbar right"><img src="img/gradleware_gear.png"></aside>
-		    <article class="flexbox vleft auto-fadein">
-		      <h2>Thanks for listening!</h2>
-		    </article>
-		    <p class="auto-fadein" data-config-contact>
-		      <!-- populated from slide_config.json -->
-		    </p>
-		  </slide>
+    </hgroup>
+    <article>
+        <p>getting started</p>
+        <ul class="build">
+            <li>explore the api of your tool of choice!</li>
+            <li>jira, youtrack, trello, github</li>
+            <li>REST is your friend</li>
+            <li>REST is easy with gradle & groovy</li>
+            <li>...</li>
+        </ul>
+    </article>
+</slide>
+<slide class="punchline">
+    <article class="flexbox vcenter">
+        <article>
+            <ul class="build">
+                <h1><note>"but we have a custom tool!?"</note></h1>
+                <h1 style="text-align: right;">GET RID OF IT!</h1>
+            </ul>
+        </article>
+    </article>
+</slide>
+<slide class="punchline">
+    <article class="flexbox vcenter">
+        <h2>puzzle #3</h2><br/><br/><br/>
+        <h5>connect your issue tracker</h5>
+    </article>
+</slide>
+
+<slide>
+    <aside class="note">
+        <section>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+    </aside>
+    <hgroup>
+        <h2>publishing</h2>
+    </hgroup>
+    <article>
+        <p>depends on your product</p>
+        <ul class="build">
+            <li>maven repository, bintray, <s>maven-central</s> out of the box</li>
+            <li>s3, ftp, ssh via custom gradle tasks</li>
+            <li>feed proprietary tools (e.g. liverebel)</li>
+            <li>...</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <aside class="note">
+        <section>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+    </aside>
+    <hgroup>
+        <h2>when something went wrong...</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+        <p>option 1</p>
+		<span><img src="img/go-live-day.gif" with="400" height="400"></span>
+    </article>
+</slide>
+
+<slide>
+    <aside class="note">
+        <section>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+    </aside>
+    <hgroup>
+        <h2>when something went wrong...</h2>
+    </hgroup>
+    <article>
+        <p>option 2: react on your build result</p>
+        <br/><br/>
+          <pre class="prettyprint" data-lang="build.gradle">
+            ...
+            gradle.addBuildListener(new BuildAdapter(){
+                void buildFinished(def result){
+                    result.failure ? gitReset() : gitPush()
+                }
+            })
+            ...
+          </pre>
+    </article>
+</slide>
+
+
+
+<slide>
+    <aside class="note">
+    </aside>
+    <hgroup>
+        <h2>links and pointers</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li><a href="http://www.gradle.org">gradle.org</a></li>
+            <li><a href="http://www.gradleware.com">gradleware.com</a></li>
+            <li><a href="https://github.com/zafarkhaja/java-semver">semantic version library</a></li>
+            <li><a href="https://github.com/ajoberstar/gradle-git">Gradle-Git Plugin (more than just a <b>git</b>
+                plugin)</a>
+            <li><a href="https://code.google.com/p/gradle-wdc-plugins/wiki/GradleSvnKitPlugin">Gradle SVN Kit plugin</a>
+            </li>
+            <li><a href="http://zeroturnaround.com/software/liverebel/">liverebel</a></li>
+            <li>...
+        </ul>
+    </article>
+</slide>
+
+<slide class="punchline">
+    <article class="flexbox vcenter">
+        <h3>Q&A</h3>
+    </article>
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="img/gradleware_gear.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+        <h2>Thanks for listening!</h2>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+        <!-- populated from slide_config.json -->
+    </p>
+</slide>
 
 <slide class="logoslide dark nobackground">
-  <article class="flexbox vcenter">
-    <span><img src="img/gradle.png"></span>
-  </article>
+    <article class="flexbox vcenter">
+        <span><img src="img/gradle.png"></span>
+    </article>
+</slide>
+
+<slide>
+    <aside class="note">
+    </aside>
+    <hgroup>
+        <h2>references</h2>
+    </hgroup>
+    <article>
+        <ul>
+ 					
+		<li>http://devopsreactions.tumblr.com/post/70883605526/final-straight-on-a-project</li>
+            <li>http://www.youtube.com/watch?v=UyLUCnTdu7o</li>
+            <li><a href="https://github.com/zafarkhaja/java-semver">semantic version library</a></li>
+            <li><a href="https://github.com/ajoberstar/gradle-git">Gradle-Git Plugin (more than just a <b>git</b>
+                plugin)</a>
+            <li><a href="https://code.google.com/p/gradle-wdc-plugins/wiki/GradleSvnKitPlugin">Gradle SVN Kit plugin</a>
+            </li>
+            <li><a href="http://zeroturnaround.com/software/liverebel/">liverebel</a></li>
+            <li>...
+        </ul>
+    </article>
 </slide>
 
 <slide class="backdrop"></slide>
 </slides>
 
-		<script>
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
-		_gaq.push(['_trackPageview']);
+<script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+        _gaq.push(['_trackPageview']);
 
-		(function() {
-		  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-		</script>
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
 
-		<!--[if IE]>
-		  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
-		  <script>CFInstall.check({mode: 'overlay'});</script>
-		<![endif]-->
+</script>
 
-    </div>
-  </div>
+<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+<script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+
+</div>
+</div>
 </body>
 </html>

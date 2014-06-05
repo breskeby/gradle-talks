@@ -2,7 +2,7 @@ var SLIDE_CONFIG = {
   // Slide settings
   settings: {
     title: 'Releasing with <br>Gradle',
-    subtitle: 'snippets, patterns, (best) practices',
+    subtitle: 'snippets, puzzles, (best) practices',
     eventTitle: 'Gradle Exchange 2014',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
