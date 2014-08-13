@@ -41,7 +41,7 @@
         <section>
             <ul>
                 <li>I think we should get started</li>
-                <li>Welcome everybody to this talk and welcome again to the 2nd gradle summit</li>
+                <li>Welcome everybody to this talk </li>
                 <li>2words about myself, rene, working for gradleware for 2 1/2 years</li>
                 <li>spent most of my time on gradle code base or supporting customers with their build automation</li>
 
@@ -81,7 +81,7 @@
     </aside>
     <!--TODO style better -->
     <article class="flexbox vcenter">
-        <h3>Motivation</h3>
+        <h3>Why Gradle</h3>
     </article>
 </slide>
 
@@ -94,17 +94,182 @@
         </section>
     </aside>
     <hgroup>
-        <h2>When doing a Release</h2>
+        <h2>Current Android builds</h2>
     </hgroup>
     <article>
-        <ul class="build">
-            <li>update your project version</li>
-            <li>deal with your vcs (tagging, branching)</li>
-            <li>publish/deploy the released distribution</li>
-            <li>interact with your issue tracker</li>
-            <li>double check your dependencies</li>
-            <li>rollback if build failed</li>
+        <h3>Two (official) build mechanism</h3>
+        <ul>
+            <li>ADT (Eclipse based)</li>
+            <li>Ant</li>
+            <li>maven</li>
+        </ul>
+        <h3>Customization?</h3>
+        <ul>
+            <li>Nothing in ADT</li>
+            <li>Manually hacking xml in ant scripts</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Goals of the new Build System</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li>Use same system for
+                <ul>
+                    <li>CommandLine</li>
+                    <li>IDE</li>
+                    <li>CI</li>
+                </ul>
+            </li>
+            <li>Allow creation of several application variants</li>
+            <li>Dependency Management</li> 
+            <li>Allow User / 3 party tools to configure, extend and customize the build process</li>
             <li>...</li>
+        </ul>
+    </article>
+</slide>
+
+
+<slide>
+    <hgroup>
+        <h2>Why Gradle</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li>Allows custom Domain Specific Language (DSL) to express build logic</li>
+            <li>Very flexible for customization</li> 
+            <li>Well integrated with CI ecosystem (Ant, Maven, ivy support)</li>
+            <li>Allow User / 3Party tools to configure, extend and customize the build process</li>
+            <li>Tooling API for IDE integration</li>
+            <li>...</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Gradle in a nutshell</h2>
+    </hgroup>
+    <article>
+        <br/><br/>
+        <pre class="prettyprint" data-lang="build.gradle">
+apply plugin:'java'
+
+version = file("version.txt").text
+
+task helloWorld << {
+    println "Hello World - version '$version'!"
+}
+        </pre>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>The Android Gradle plugin</h2>
+    </hgroup>
+    <article>
+		<p>applying the plugin</p>
+        <br/><br/>
+        <pre class="prettyprint" data-lang="build.gradle">
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.12.+'
+    }
+}
+apply plugin:'apply plugin: 'com.android.application'
+		</pre>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Product Flavours</h2>
+    </hgroup>
+    <article>
+        <h3 align="right"><bold>"a way to generate several versions of the same app"</bold></h3>
+		<br/><br/>
+        <ul>
+          <li>Source code + resources overlay
+            <ul>
+                <li>allow custom dependencies</li>
+            </ul>
+          </li><br/>
+          <li>Customize app parameters
+            <ul>
+                <li>package name</li>
+                <li>min/targetSdkVersion</li>
+                <li>versionCodeName</li>
+                <li>signing info</li>
+            </ul>
+          </li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Build types</h2>
+    </hgroup>
+    <article>
+        <h3 align="right"><bold>"controls how an app is built"</bold></h3>
+		<br/><br/>
+        <ul> 
+          <li>Source code + resources overlay
+            <ul>
+                <li>also custom dependencies</li>
+            </ul>
+          </li><br/>
+          <li>Customize app parameters
+            <ul>
+                <li>debugable flag</li>
+                <li>native debug compilation flag</li>
+                <li>package suffix</li>
+                <li>debug signing</li>
+                <li>proguard options</li>
+                <li>2 default types (debug + release)</li>      
+                <!--<li>orthogonal to product flavours</li>-->
+            </ul>
+          </li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>Build variants</h2>
+    </hgroup>
+    <article>
+        <h3 align="right"><bold>"a variant is always a flavour + a type"</bold></h3>
+		<br/><br/>
+        <table>
+            <tr >
+                <td width="200px"></td>
+                <td width="300px">debug</td>
+                <td width="300px">release</td>
+            </tr>
+            <tr>
+                <td>free</td>
+                <td>free-debug</td>
+                <td>free-release</td>
+            </tr>
+            <tr>
+                <td>payed</td>
+                <td>payed-debug</td>
+                <td>payed-release</td>
+            </tr>
+        </table>
+        <ul>
+            <li>    
+                manage overlay<br/>
+                <strong>build type -> flavour -> main</strong>
+            </li>
         </ul>
     </article>
 </slide>
@@ -375,7 +540,7 @@
     </hgroup>
     <article class="flexbox vcenter">
         <p>option 1</p>
-		<span><img src="img/go-live-day.gif" with="400" height="400"></span>
+        <span><img src="img/go-live-day.gif" with="400" height="400"></span>
     </article>
 </slide>
 
@@ -455,9 +620,9 @@
     </hgroup>
     <article>
         <ul>
- 			<li>http://devopsreactions.tumblr.com/post/70883605526/final-straight-on-a-project</li>
-        	<li>http://www.youtube.com/watch?v=UyLUCnTdu7o</li>
-			<li>http://devopsreactions.tumblr.com/post/49078186169/go-live-day</li>
+            <li>http://devopsreactions.tumblr.com/post/70883605526/final-straight-on-a-project</li>
+            <li>http://www.youtube.com/watch?v=UyLUCnTdu7o</li>
+            <li>http://devopsreactions.tumblr.com/post/49078186169/go-live-day</li>
         </ul>
     </article>
 </slide>
