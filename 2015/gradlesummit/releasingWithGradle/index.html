@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>ease your release</title>
+
+		<meta name="description" content="latest efforts, current status & roadmap">
+		<meta name="author" content="Rene Groeschke">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/gradle.org.css" id="theme">
+		
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="#1F2D38">
+					<img src="images/bg_intro.png">
+				</section>
+				<section>
+					<img src="images/gradle-icon-cropped.png"><br/>
+				</section>
+				<section style="text-align: left;">
+	
+					<h3>ease</h3>
+					<h2>your</h2>
+					<h1>release</h1>
+					<aside class="notes">
+					        experiences from the field, best practices, brainstorming together with you about automating your release
+					    </aside>
+					<p>
+						GradleSummit 2015, Santa Clara<br/>
+						<small style="align='left'">René Gröschke</small>
+					</p>
+				</section>
+					<section>
+						<h3>myself</h3>
+						<ul>
+							<li>rene gröschke
+							</li>
+							<li>gradle engineer</li>
+							<li>living in berlin</li>
+							<li>no pets</li>
+						</ul>	
+					</section>
+				<section>
+					<section>
+						<h3>motivation</h3>
+						<ul>
+							<li class="fragment roll-in">reproducible releases</li>
+							<li class="fragment roll-in">shorter release cycles</li>
+							<li class="fragment roll-in">relaxed release days</li></ul>
+						</section>
+						
+						<section data-background="images/giphy_fozzie1.gif"></section>
+						<section data-background="images/betterreleaseday.gif">
+						</section>
+				</section>
+				<section>
+					<h3>When doing a Release</h3>
+					<ul>
+						<li>update your project version</li>
+						<li>double check your dependencies</li>
+						<li>deal with your vcs (tagging, branching)</li>
+						<li>publish/deploy the released distribution</li>
+						<li>interact with your issue tracker</li>	
+						<li>rollback if build failed</li>
+					</u>
+				</section>
+				
+				<section>
+						<h2>Versioning</h2>
+						<p><pre><code data-trim contenteditable>
+// quite bad:
+// build.gradle 
+version = "1.1-SNAPSHOT"
+
+// better:
+// gradle.properties 
+version=1.1-SNAPSHOT
+
+// or: 
+// build.gradle 
+version = file("version.txt").text
+						</code></pre></p>
+				</section>
+				<section>
+						<h3>Semantic Versioning</h3>
+						<ul>
+							<li>in short: "${major}.${minor}.${bugfix}" 
+								<ul>
+									<li>major - incompatible API changes</li>
+									<li>minor - functionality in a backwards-compatible manner</li>
+									<li>bugfix - backwards-compatible bug fixes</li>
+								</ul>
+							</li>
+							<li>specification by Tom Preston-Werner</li>
+							<li><a href="http://semver.org">http://semver.org</a></li>
+							<li>com.github.moleksyuk.vcs-semantic-version</li>
+						</ul><br/>
+						<!--<iframe with="300" data-src="http://semver.org"></iframe> -->
+				</section>
+				
+				<section>
+						<h3>Semantic Versioning with Gradle</h3>
+						<p><pre><code data-trim contenteditable>
+version = MyVersion.load(file("version.properties"))
+
+class MyVersion {
+    int major, minor, bugfix
+
+    String toString(){
+        "${major}.${minor}.${bugfix}"
+    }
+    ...
+}
+						</code></pre></p>
+				</section>
+
+				<section>
+					<img src="images/eclipse_version.png">
+				</section>
+				
+				<section>
+					<img src="images/idea_version.png">
+				</section>
+				
+				<section>
+						<h3>add traceability with Gradle</h3>
+						<p><pre><code data-trim contenteditable>
+//src/main/resources/info.properties
+version=@version@	
+revision=@revsion@
+buildNo=@buildNo@
+					</code></pre>
+					<pre><code data-trim contenteditable>
+// assuming java plugin applied
+processResources {
+	def version = project.version
+	def revision = file(".git/refs/heads/master").text
+	def buildNo = System.getProperty("BUILD_NUMBER")
+	
+	filter(org.apache.tools.ant.filters.ReplaceTokens, 
+			tokens: [version: project.version,
+				 buildNo: buildNo, 
+				 revision: revision
+				]
+			)
+
+	inputs.property "version", version
+	inputs.property "revision", revision
+	inputs.property "buildNo", buildNo
+}
+							</code></pre>
+						</p>
+				</section>
+				
+				<section>
+					<h3>Release plugins in our portal</h3>
+					<h5>(<a href="https://plugins.gradle.org/search?term=release">https://plugins.gradle.org/search?term=release</a>)</h5>
+					<ul>
+						<li><a href="https://plugins.gradle.org/plugin/net.researchgate.release">net.researchgate.release</a></li>
+				     	<li><a href="https://plugins.gradle.org/plugin/be.xvrt.release">be.xvrt.release</a></li>
+				     	<li><a href="https://plugins.gradle.org/plugin/nebula.nebula-release">nebula.nebula-release</a></li>
+				     	<li><a href="https://plugins.gradle.org/plugin/ch.netzwerg.release">ch.netzwerg.release</a></li>
+				     	<li><a href="https://plugins.gradle.org/plugin/pl.allegro.tech.build.axion-release">pl.allegro.tech.build.axion-release</a></li>
+				     	<li><a href="https://plugins.gradle.org/plugin/org.ajoberstar.release-base">org.ajoberstar.release-base</a></li>
+					 	<li><a href="https://plugins.gradle.org/plugin/com.rapidminer.release">com.rapidminer.release</a></li>
+				     	<li><a href="https://plugins.gradle.org/plugin/com.github.oehme.sobula.bintray-release">com.github.oehme.sobula.bintray-release</a></li>
+				     	<li><a href="https://plugins.gradle.org/plugin/com.github.oehme.sobula.release">com.github.oehme.sobula.release</a></li>
+					</u>
+				</section>
+				
+				<section>
+					<h2>Some (live) coding</h2>
+					<p>taking a closer look at <a href="https://plugins.gradle.org/plugin/net.researchgate.release">net.researchgate.release</a></p>
+				</section>
+				<section>
+					<h2>publish/deploy</h2>
+					
+					<img src="images/deploytargets.png"><br/>
+				</section>
+				<section>
+					<h2>Some (more) coding</h2>
+					<p>deploying to heroku</p>
+				</section>
+				<section>
+					<h2>issue tracker</h2>
+					<h5>getting started</h5>
+					<ul>
+						<li>explore the api of your tool of choice!</li>
+						<li>jira, youtrack, trello, github</li>
+						<li>REST is your friend</li>
+						<li>REST is easy with gradle & groovy</li>
+					</li></ul>
+				</section>
+				<section>
+					<img src="images/jira-integration-sample.png"><br/>
+				</section>
+				<section>
+					<h2>last demo</h2>
+					<p>integrate github issue tracker</p>
+				</section>
+				<section>
+					<h2>rollbacks?</h2>
+				</section><section>
+			    <h2>Links and pointers</h2>
+			        <ul>
+					<li>Gradle Plugin Portal: <a href="https://plugins.gradle.org">https://plugins.gradle.org</a></li>
+						<li>Semantic versioning: <a href="http://semver.org">http://semver.org</a></li>
+					  	<li>Sample project: <a href="https://github.com/breskeby/SampleMicroService">https://github.com/breskeby/SampleMicroService</a></li>
+
+			          <li>heroku gradle buildpack: <a href="https://github.com/heroku/heroku-buildpack-gradle">https://github.com/heroku/heroku-buildpack-gradle</a></li>
+			        </ul>
+			</section>
+			<section>
+			    <h1>Q&A</h1>
+			</section>
+			
+			<section>
+				<h1>Many Thanks!</h1>
+				<table>
+					<small>
+					<tbody>
+						<tr>
+							<td><small><i class="fa fa-twitter"></i></small></small></td>
+							<td><small><a href="http://twitter.com/breskeby">@breskeby</small></td>
+						<tr>
+						
+						<tr>
+							<td><small><i class="fa fa-github"></i></small></td>
+							<td><small><a href="http://github.com/breskeby">github.com/breskeby</a></small></td>
+						<tr>
+							<tr>
+								<td><small><i class="fa fa-envelope"></i></small></td>
+								<td><small>rene@gradle.com</small></td>
+							<tr>
+					</tbody></small>
+				</table>
+			</section>
+			
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'footer.reveal.js', condition: function() { return !!document.querySelector( 'footer' ); } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
