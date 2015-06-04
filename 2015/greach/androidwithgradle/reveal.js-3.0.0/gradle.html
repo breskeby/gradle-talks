@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Building Android apps with Gradle</title>
+
+		<meta name="description" content="latest efforts, current status & roadmap">
+		<meta name="author" content="Rene Groeschke">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/gradle.org.css" id="theme">
+		
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<img src="../slidedeck/app/img/gradleandroid.png"><br/>
+					</section>
+				<section style="text-align: left;">
+	
+					<h2>Building Android apps with Gradle</h2>
+					<p>
+						GREACH 2015, Madrid<br/>
+						<small style="align='left'">René Gröschke<br/>
+							Principal Engineer Gradleware</a></small>
+					</p>
+				</section>
+				<section>
+					<h3>intro, demo & forecast</h3>  
+				</section>
+				
+				<section>
+					<h2>Why a new build system?</h2>
+				</section>
+		        
+				<section>
+					<h2>Gradle 2.3</h2>
+					<h4>Released 16th February 2015</h4>
+				</section>
+				
+				<section style="text-align: left;">
+					<h2>Old Android builds</h2>
+					<p>Two (official) build mechanism
+					<ul>
+		              <li>ADT (Eclipse based)</li>
+		              <li>Ant</li>
+					  <li>Maven</li>
+		            </ul></p>
+					<p>Customization?
+					<ul>
+		              <li>Nothing in ADT</li>
+		              <li>Manually hacking xml in ant scripts</li>
+		            </ul></p>
+			</section>
+			
+			<section style="text-align: left;">
+				<h2>Requirements of the new Build System</h2>
+				<ul>
+					<li>Use same system for</li>
+					<ul>
+	              		<li>CommandLine</li>
+	              		<li>CI Server</li>
+				  		<li>IDE</li>
+	            	</ul>
+					<li>Support for application/library variants</li>
+					<li>Dependency Management</li>
+					<li>Provide a plugin ecosystem</li>
+				</ul>
+			</section>
+			<section style="text-align: left;">
+				<h2>Why Gradle</h2>
+				<ul>
+					<li>Allows custom DSL to express build logic</li>
+					<li>Very flexible for customization</li>
+					
+					<li>Well integrated with CI ecosystem (Ant, Maven, Ivy, CI server)</li>
+					<li>Allow User / 3Party tools to configure, extend and customize the build process</li>
+					<li>Tooling API for IDE integration</li>
+					<li>...</li>
+				</ul>
+			</section>            
+			<section>
+				<h3>Gradle in a nutshell</h3>
+				<pre><code>
+apply plugin:'java'
+
+version = file("version.txt").text
+
+task helloWorld << {
+    println "Hello World - version '$version'!"
+}
+				</code></pre>
+			</section>
+			
+			<section>
+				<h3>The Android Gradle plugin</h3>
+				<h4>Minimal android build</h4>
+				<pre><code>
+plugins {
+    id 'com.android.application' version '1.1.+'
+}
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+}
+
+				</code>
+				</pre>
+				<pre>
+					<code>
+>gradle check assemble
+>gradle build
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3>The Android Gradle plugin</h3>
+				<h4>Basic build customization</h4>
+				<pre>
+					<code>
+android {
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+
+    defaultConfig {
+        versionCode 12
+        versionName "2.0"
+        minSdkVersion 19
+        targetSdkVersion 22
+        multiDexEnabled = true
+    }
+}
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3>The Android Gradle plugin</h3>
+				<h4>Remember, it's groovy!</h4>
+				<pre>
+					<code>
+def calculateVersionName() {
+    ...
+}
+android {
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+
+    defaultConfig {
+        versionName calculateVersionName()
+    }
+}
+			 		</code>
+			 	</pre>
+			 </section>
+			 <section style="text-align: left;">
+			 	<h2>Build types</h2>
+			 	<b>"controls how an app is built"</b>
+				<p>
+					<ul>
+				 		<li>Customize app parameters</li>
+						<ul>
+							<li>debuggable flag</li>
+					 		<li>native debug compilation flag</li>
+					 		<li>package suffix</li>
+							<li>debug signing</li>
+							<li>proguard options</li>
+							<li>2 default types (debug + release)</li>
+						</ul>
+				 		<li>Source code + resources overlay</li>
+				 		<li>Custom dependencies</li>
+				 	</ul>
+				</p>
+				
+			 </section>
+			<section style="text-align: left;">
+			 	<h2>Product Flavors</h2>
+			 	<b>"a way to generate several versions of the same app"</b>
+				<p>
+					<ul>
+				 		<li>Customize app parameters</li>
+						<ul>
+							<li>package name</li>
+					 		<li>min/targetSdkVersion</li>
+					 		<li>versionCodeName</li>
+							<li>signing info</li>
+						</ul>
+				 		<li>Source code + resources overlay</li>
+				 		<li>Custom dependencies</li>
+				 	</ul>
+				</p>
+			 </section>
+			<section style="text-align: left;">
+			 	<h2>Build variants</h2>
+			 	<b>"a variant is always a flavor + a type"</b>
+				<p>
+					<table>
+			            <tr >
+			                <td width="200px"></td>
+			                <td width="300px">debug</td>
+			                <td width="300px">release</td>
+			            </tr>
+			            <tr>
+			                <td>free</td>
+			                <td><small>free-debug</small></td>
+			                <td><small>free-release</small></td>
+			            </tr>
+			            <tr>
+			                <td>payed</td>
+			                <td><small>payed-debug</small></td>
+			                <td><small>payed-release</small></td>
+			            </tr>
+			        </table>
+				</p>
+			</section>			
+			
+			<section style="text-align: left;">
+			 	<h2>Build variants II</h2>
+			 	<h4>product flavor groups</h4>
+				<p>
+					<table>
+			            <tr>
+			                <td width="120px"></td>
+			                <td width="120px"></td>
+			                <td width="300px">debug</td>
+			                <td width="300px">release</td>
+			            </tr>
+			            <tr>
+			                <td>free</td>
+			                <td>x86</td>
+			                <td><small>free-x86-debug</small></td>
+			                <td><small>free-x86-release</small></td>
+			            </tr>
+
+			            <tr>
+			                <td></td>
+			                <td>ARM</td>
+			                <td><small>free-ARM-debug<small></td>
+			                <td><small>free-ARM-release</small></td>
+			            </tr>
+			            <tr height="20px">
+			                <td></td>
+			                <td></td>
+			                <td></td>
+			                <td></td>
+			            </tr>
+			            <tr>
+			                <td>payed</td>
+			                <td>x86</td>
+			                <td><small>payed-x86-debug</small></td>
+			                <td><small>payed-x86-release</small></td>
+			            </tr>
+			            <tr>
+			                <td></td>
+			                <td>ARM</td>
+			                <td><small>payed-ARM-debug</small></td>
+			                <td><small>payed-ARM-release</small></td>
+			            </tr>
+			        </table>
+				</p>
+			</section>
+			<section style="text-align: left;">
+				<h2>Flavor groups</h2>
+				<pre>
+					<code>
+flavorDimensions   "group1", "group2"
+
+productFlavors {
+    arm { 
+        flavorDimension   "group1"
+    }
+    x86 {
+        flavorDimension   "group1"
+    }
+    free {
+        flavorDimension   "group2"
+    }
+    pro {
+        flavorDimension   "group2"
+    }
+}
+			 		</code>
+			 	</pre>
+			</section>
+		  	<section style="text-align: left;">
+			<h4>Source code + resources overlay</h4>
+	<pre>
+		<code>
+ ~/dev/androidApp/src>tree
+ |____main
+ | |____java
+ | |____res
+ |____androidTest
+ | |____java
+ | |____res
+ |____free
+ | |____java
+ | |____res
+ |____debug
+ | |____java
+ ~/dev/androidApp/src>
+</code></pre>
+<p>Build Type > Product Flavor > main</p>
+	  </section>
+	  <section>
+	  	<h2>DEMO I</h2>
+	  	<h4>Variants in action</h4>
+	  </section>
+	  <section style="text-align: left;">
+		<h2>Build customization I</h2>
+		<h4>dex configuration</h4>
+		<pre><code>
+android {
+    dexOptions {
+        incremental true
+        preDexLibraries = false
+        jumboMode = false
+    }
+}
+</code></pre>
+	 </section>
+	<section style="text-align: left;">
+		<h2>Build customization II</h2>
+		<h4>aapt configuration</h4>
+		<pre><code>
+android {
+    aaptOptions {
+        noCompress 'foo', 'bar'
+        ignoreAssetsPattern "!.svn:!.git:!.ds_store:!*.scc"
+    }
+}
+
+</code></pre>
+	 </section>
+	<section style="text-align: left;">
+		 	<h2>Build customization III</h2>
+		 	<h4>and more</h4>
+			<ul>
+			 	<li>lint</li>
+				<li>java compile options</li>
+				<li>proguard</li>
+			</ul>
+		 </section>	
+	 <section>
+	  	<h2>DEMO II</h2>
+	  	<h4>Manipulating tasks</h4>
+	 </section>
+	
+	 <section style="text-align: left;">
+		 	<h2>Testing</h2>
+			<ul>
+			 	<li>no separate test project needed</li>
+				<li>variant aware tests</li>
+				<li>run against (all) connected devices</li>
+				<li>experimental unit test support (android build tools 1.1)</li>
+			</ul>
+					<pre><code>
+android {
+  // ...
+  testOptions { 
+    unitTests.returnDefaultValues = true
+  }
+}
+			</code></pre>
+			
+		 </section>
+		<section style="text-align: left;">
+			 	<h2>Plenty of more things</h2>
+				<ul>
+				 	<li>android libraries (aar)</li>
+					<li>vivid plugin ecosystem
+						<ul>
+							<li>crashlytics</li>
+							<li>roboelectrics</li>
+							<li>testfairy</li>
+							<li>instabug</li>
+							<li>...</li>
+						</ul>
+					</li>
+				</ul>
+		</section>
+		<section style="text-align: left;">
+			 	<h2>Under construction</h2>
+				<ul>
+				 	<li>NDK support</li>
+					<li>variant aware dependency management</li>
+					<li>significant performance improvements</li>
+				</ul>
+		</section>
+
+			<section style="text-align: left;">
+			    <h2>Links and pointers</h2>
+			        <ul>
+					  	<li><a href="http://tools.android.com/tech-docs/new-build-system/user-guide">http://tools.android.com/tech-docs/new-build-system/user-guide</a></li>
+						<li><a href="https://groups.google.com/forum/#!forum/adt-dev">https://groups.google.com/forum/#!forum/adt-dev</a></li>
+			          <li><a href="http://gradle.org">gradle.org</a></li>
+			          <li><a href="http://gradleware.co">gradleware.com</a></li>
+			          <li><a href="https://github.com/breskeby/android-demo-app">https://github.com/breskeby/android-demo-app</a></li>
+			
+			        </ul>
+			</section>
+			<section>
+			    <h1>Q&A</h1>
+			</section>
+			
+			<section data-background="#1F2D38">
+			    <img src="bg_intro.png">
+			</section>
+			
+			<section>
+				<h1>¡Muchas gracias!</h1>
+				<table>
+					<small>
+					<tbody>
+						<tr>
+							<td><small><i class="fa fa-twitter"></i></small></small></td>
+							<td><small>@breskeby</small></td>
+						<tr>
+						
+						<tr>
+							<td><small><i class="fa fa-github"></i></small></td>
+							<td><small>github.com/breskeby</small></td>
+						<tr>
+							<tr>
+								<td><small><i class="fa fa-envelope"></i></small></td>
+								<td><small>rene.groeschke@gradleware.com</small></td>
+							<tr>
+					</tbody></small>
+				</table>
+			</section>
+			
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'footer.reveal.js', condition: function() { return !!document.querySelector( 'footer' ); } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
