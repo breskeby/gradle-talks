@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>automation dogfooding</title>
+
+		<meta name="description">
+		<meta name="author" content="Rene Groeschke">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/gradle.org.css" id="theme">
+		
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="#1F2D38">
+					<img src="images/bg_intro.png">
+				</section>
+				<section>
+					<img src="images/gradle-icon-cropped.png"><br/>
+				</section>
+				<section style="text-align: left;">
+	
+					<h1>automation dogfood</h1>
+					<h5>How we push automation in the Gradle team</h5>
+					<aside class="notes">
+					        experiences from the field, best practices, brainstorming together with you about automating your release
+					    </aside>
+					<p>
+						GradleSummit 2015, Santa Clara<br/>
+						<small style="align='left'">René Gröschke</small>
+					</p>
+				</section>
+				<section>
+						<h3>about me</h3>
+						<ul>
+							<li>rene gröschke
+							</li>
+							<li>gradle engineer</li>
+							<li>living in berlin</li>
+							<li>no pets</li>
+						</ul>	
+				</section>
+				<section>
+						<h3>about this talk</h3>
+						<ul>
+							<li>providing some insights</li>
+							<li>inspires</li>
+							<li>impress</li>
+						</ul>	
+				</section>
+				<section>
+					<section>
+						<h3>about the gradle project</h3>
+						<ul>
+							<li>~ 12 distributed full time engineers</li>
+							<li>frequent releases (aim is 6 - 8 weeks)</li>
+							<li>~15k unit + integration tests</li>
+							<li>~ 60 modules</li>
+						</ul>	
+					</section>
+					<section>
+							<h3>about the gradle project II</h3>
+							<img src="images/linesofcode.png">
+					</section>
+					<section>
+							<h3>about the gradle project III</h3>
+							<img src="images/commitspermonth.png">
+					</section>
+				</section>
+				<section>
+						<h3>automation is</h3>
+						<ul>
+							<li>critical for high perfoming teams</li>
+							<li>everyones responsibility</li>
+							<li>in continuous development</li>
+						</ul>	
+				</section>
+				<section>
+						<h2>Development</h2>
+				</section>
+					<section>		
+						<section>
+								<h3>IDE setup</h3>
+								<ul>
+									<li>automated import setup</li>
+									<li>prerequisite is java</li>
+								</ul>
+						</section>		
+					<section>
+						<h3>Demo</h3>
+						<p>setup workspace</p>
+						
+					</section>
+				</section>
+				<section>
+						<h3>Testing</h3>
+						<ul>
+							<li>lot of test nerds on board</li>
+							<li>we <i class="fa fa-heart"></i> spock</li>
+						</ul>
+				</section>
+				<section>
+					<section>
+						<h3>Integration Tests</h3>
+						<ul>
+							<li>must be simple to write</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Demo</h3>
+						<p>writing integration tests</p>				
+					</section>
+				</section>
+				<section>
+					<h3>Integration Tests</h3>
+					<p>test modes</p>
+					<ul>
+						<li><b>embedded</b> (very fast, easy to debug)</li>
+						<li><b>forking</b> (slower, but more realistic)</li>
+						<li><b>daemon</b> (stress test for the daemon)</li>
+						<li><b>parallel</b> (stress test for parallel feature)</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h3>Cross Version Testing</h3>
+						<p>testing against different versions of things</p>
+						<ul>
+							<li>against different framework versions 
+								<ul><li>junit</li><li>groovy</li></ul>
+							</li>
+							<li>run against latest version locally</li>
+							<li>test full suite of versions on CI</li>
+						</ul>
+
+					</section>
+					<section>
+						<h3>Demo</h3>
+						<p>Cross Version Testing</p>				
+					</section>
+
+				</section>
+					<section>
+						<h3>Distribution Testing</h3>
+					</section>
+					<section>
+						<h3>Performance Testing</h3>
+						<p>TODO show results on teamcity</p>
+					</section>
+				</section>
+				<section>
+					<h3>Testable Documentation</h3>
+					<ul>
+						<li>samples are tested</li>
+						<li>gradle snippets in javadoc</li>
+						<li>java snippets in javadoc</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Documentation</h3>
+					<ul>
+						<li>Userguide</li>
+						<li>DSL reference</li>
+						<li>API reference</li>
+						<li>Release notes</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Code Quality</h3>
+					<ul>
+						<li>sanity check build</li>
+						<li>also applied on build logic</li>
+						<li><i class="fa fa-exclamation-circle"></i> no code coverage</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Build pipeline</h3>
+					<ul>
+						<li>quality gates</li>
+						<li>implemented with teamcity</li>
+						<li>identical pipeline for master and release</li>
+					</ul>
+				</section>
+				<section>
+					<h3>promotion</h3>
+					<ul>
+						<li>one click release</li>
+						<li>dedicated job with additional logic</li>
+						<li>smoke tests</li>
+						<li>announcement (partially automated)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>infrastructure</h3>
+					<ul>
+						<li>20 build agents</li>
+						<li>linux and windows build machines</li>
+						<li>managed via salt (<a href="http://saltstack.com">http://saltstack.com</a>)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>forum integration</h3>
+					<ul>
+						<li>forum based on discourse (<a href="http://discourse.org">http://discourse.org</a>)</li>
+						<li>automation based on discourse plugins</li>
+						<li>still in progress</li>
+					</ul>
+				</section>
+				<section>
+			    <h2>Links and pointers</h2>
+			        <ul>
+					<li>Gradle Build server Portal: <a href="https://builds.gradle.org">https://builds.gradle.org</a></li>
+			        </ul>
+			</section>
+			<section>
+			    <h1>Q&A</h1>
+			</section>
+			
+			<section>
+				<h1>Many Thanks!</h1>
+				<table>
+					<small>
+					<tbody>
+						<tr>
+							<td><small><i class="fa fa-twitter"></i></small></small></td>
+							<td><small><a href="http://twitter.com/breskeby">@breskeby</small></td>
+						<tr>
+						
+						<tr>
+							<td><small><i class="fa fa-github"></i></small></td>
+							<td><small><a href="http://github.com/breskeby">github.com/breskeby</a></small></td>
+						<tr>
+							<tr>
+								<td><small><i class="fa fa-envelope"></i></small></td>
+								<td><small>rene@gradle.com</small></td>
+							<tr>
+					</tbody></small>
+				</table>
+			</section>
+			
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'footer.reveal.js', condition: function() { return !!document.querySelector( 'footer' ); } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
