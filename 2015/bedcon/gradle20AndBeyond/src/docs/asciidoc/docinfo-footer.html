@@ -1,0 +1,16 @@
+<script>
+  // inject footer element
+  var x = document.getElementsByClassName("reveal");
+  var i;
+  for (i = 0; i < x.length; i++) {
+	var element = document.createElement("div");
+	element.setAttribute("class", "footer")    
+	element.appendChild(document.createTextNode('Some footer'));
+	x[i].appendChild(element);   
+  }
+  
+  // displayed upon load, hides when slide changes
+  // Reveal.addEventListener('slidechanged', function(event) {
+  //  document.querySelector('.reveal .footer').style.display = 'none';
+  // });
+</script>
