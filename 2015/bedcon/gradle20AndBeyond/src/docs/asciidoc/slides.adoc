@@ -6,7 +6,9 @@ ifndef::imagesdir[:imagesdir: images]
 == René Gröschke
 
 * Principal Engineer @ Gradle Inc.
-* @breskeby
+* icon:twitter[]  @breskeby
+* icon:envelope[] rene@gradle.com
+* icon:github[] breskeby
 
 == Gradle in a nutshell
 

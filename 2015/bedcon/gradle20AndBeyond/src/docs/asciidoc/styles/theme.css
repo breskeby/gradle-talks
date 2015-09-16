@@ -183,6 +183,11 @@ body {
   margin-left: 1em;
 }
 
+.reveal .fa {
+  font-family: 'FontAwesome';
+  font-style: normal;
+}
+
 .reveal .footer {
   position: absolute;
   bottom: 1em;
