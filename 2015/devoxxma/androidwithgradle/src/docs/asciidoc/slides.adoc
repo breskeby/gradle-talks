@@ -1,0 +1,432 @@
+:homepage: http://gradle.org
+
+= Building Android apps with Gradle
+intro, demo, forecast
+ifndef::imagesdir[:imagesdir: images]
+
+== René Gröschke
+
+* Principal Engineer @ Gradle Inc.
+* icon:twitter[]  @breskeby
+* icon:envelope[] rene@gradle.com
+* icon:github[] breskeby
+
+== Why a new build system?
+
+=== How things used to "work"
+
+* Two (official) build mechanisms
+	* ADT (Eclipse based)
+	* Ant
+	* Maven
+	
+=== Custom build steps?
+
+* No support in ADT
+* Manually hacking xml in ant scripts
+
+=== Multiple App Versions
+
+== Requirements of the new Build System
+
+=== Use same system for
+	* CLI
+	* CI
+	* IDE
+
+=== Dependency Management
+=== Variant Support
+=== Plugin ecosystem
+
+== Why Gradle
+
+* Allows custom Domain Specific Language (DSL) to express build logic
+* Very flexible for customization
+* Well integrated with CI ecosystem (Ant, Maven, Ivy, CI server)
+* Allow User / 3Party tools to configure, extend and customize the build process
+* Tooling API for IDE integration
+
+== Gradle in a nutshell
+
+A simple java project
+
+[source,java]
+----
+apply plugin:"java"
+
+version = file("version.txt").text
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile "junit:junit:4.+"
+}
+
+task helloWorld << {
+    println "Hello World - version '$version'!"
+}
+----
+
+== The Android Gradle plugin
+
+Minimal android build
+
+[source,java]
+----
+
+plugins {
+    id 'com.android.application' version '1.5.+'
+}
+android {
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+}
+----
+
+[source,java]
+----
+>gradle check assemble
+>gradle build
+----
+
+== The Android Gradle plugin
+
+Basic build customization
+
+[source,java]
+----
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.1.0'
+
+    defaultConfig {
+        versionCode 12
+        versionName "2.0"
+        minSdkVersion 19
+        targetSdkVersion 22
+        multiDexEnabled = true
+    }
+}
+----
+
+== The Android Gradle plugin
+
+Remember, it's groovy!
+
+[source,java]
+----
+def calculateVersionName() {
+    ...
+}
+android {
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+
+    defaultConfig {
+        versionName calculateVersionName()
+    }
+}
+----
+
+== Build types
+
+Controls how an app is built
+
+=== Build types
+
+Customize app parameters
+
+* Debuggable flag
+* Native debug compilation flag
+* Package suffix
+* Debug signing
+* Proguard options
+* Custom sources and resources
+* Custom dependencies
+* 2 default types (_debug_ + _release_)
+
+=== Build Types
+
+[source,java]
+----
+android {
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+        }
+
+        jnidebug {
+            initWith(buildTypes.debug)
+            packageNameSuffix ".jnidebug"
+            jniDebuggable true
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+            'proguard-rules.pro'
+        }
+    }
+}
+----
+
+
+
+== Product Flavors
+
+Flavours define custom versions of the application build by the project
+
+=== Product Flavors
+
+Customize app parameters
+
+* Package name
+* Minimum / target SDK version
+* Version code name
+* Signing info
+* Custom sources and resources
+* Custom dependencies
+
+=== Product Flavors
+
+[source,java]
+----
+android {
+    ....
+    productFlavors {
+        free {
+            ...
+        }
+
+        pro {
+            ...
+        }
+    }
+}
+----
+
+== Build Variants
+
+Build Type + Product Flavor = Build Variant
+
+|===
+|  		|debug 			| release 
+|free 	| *freeDebug* 	| *freeRelease*
+|payed 	| *payedDebug* 	| *payedRelease*
+|===
+
+== Build Variants "like a pro"
+
+_Multi-flavor variants_ allow arbitrary number of variant dimensions
+
+|===
+| 		| 		| debug 			| release 
+|free 	| x86 	| *freeX86Debug*	| *freeX86Release* 
+|free 	| ARM 	| *freeARMDebug* 	| *freeARMRelease* 
+|pro 	| x86	| *proX86Debug* 	| *proX86Release* 
+|pro 	| ARM	| *proArmDebug* 	| *proArmRelease*
+|===
+
+== Multi-flavor variants
+
+[source,java]
+----
+flavorDimensions   "arch", "feature"
+
+productFlavors {
+    arm { 
+        dimension   "arch"
+    }
+    x86 {
+        dimension   "arch"
+    }
+    free {
+        dimension   "feature"
+    }
+    pro {
+        dimension   "feature"
+    }
+}
+----
+
+== Source / Resources overlay
+
+Build Type > Product Flavor > main
+
+[source]
+----
+~/dev/androidApp/src>tree
+|____main
+| |____java
+| |____res
+|____androidTest
+| |____java
+| |____res
+|____free
+| |____java
+| |____res
+|____androidTestFree
+|____debug
+| |____java
+
+~/dev/androidApp/src>
+----
+
+== Dependencies
+
+[source, java]
+----
+dependencies {
+	freeDebugApk "..."
+	proReleaseCompile "..."
+	...
+}
+----
+
+== Building
+
+1. assemble
+2. assemble<Variant Name>
+3. assemble<Build Type Name>
+4. assemble<Product Flavor Name>
+
+== Build Customization
+=== Dex Configuration
+[source, java]
+----
+android {
+    dexOptions {
+        incremental true
+        preDexLibraries = false
+        jumboMode = false
+		javaMaxHeapSize "1g"
+    }
+}
+----
+
+=== AAPT Configuration
+[source, java]
+----
+android {
+    aaptOptions {
+        noCompress 'foo', 'bar'
+        ignoreAssetsPattern "!.svn:!.git:!.ds_store:!*.scc"
+    }
+}
+----
+
+=== and more
+
+* Lint
+* Java compile options
+* Proguard
+
+== Testing
+* No separate test project needed anymore
+* Instrumentation tests
+* Run against (all) connected devices
+* New unit test support
+* Test Project Plugin for migration
+
+== Plenty of more things
+
+=== Android libraries
+
+=== Vivid plugin ecosystem
+
+* Crashlytics
+* Roboelectrics
+* Testfairy
+* Instabug
+* Sonarqube
+
+== New Experimental Plugin
+* Based on the new _incubating_ "gradle software model"
+
+== New Experimental Plugin
+
+[source,java]
+----
+apply plugin: "com.android.model.application"
+
+model {
+    android {
+        compileSdkVersion = 22
+        buildToolsVersion = "22.0.1"
+        defaultConfig.with {
+            applicationId =  "com.example.user.myapplication"
+            minSdkVersion.apiLevel = 15
+        }
+    }
+    android.buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles += file("proguard-rules.pro")
+        }
+    }
+}
+----
+
+=== Ndk Integration
+* Relies on Gradle built-in Native support
+* SDK Manager inside Studio to download the NDK
+
+=== Ndk Integration
+[source,java]
+----
+...
+model {
+    android {
+        compileSdkVersion = 22
+        buildToolsVersion = "22.0.1"
+    }
+    android.ndk {
+        moduleName = "native"
+        toolchain = "clang"
+        toolchainVersion = "3.5"
+        CFlags += "-DCUSTOM_DEFINE"
+        cppFlags += "-DCUSTOM_DEFINE"
+        ldFlags += "-L/custom/lib/path"
+        ldLibs += "log"
+        stl = "stlport_static"
+    }
+}
+----
+
+=== The Gradle Software Model
+
+* A {homepage}[component] is a general concept for a piece of software that might be deliverable.
+* A {homepage}[library] is a buildable component. 
+* A {homepage}[source set] represents a logical group of source files in a component.
+* A {homepage}[variant] represents a modulation of a component.
+* A {homepage}[binary] represents the output of a library. 
+
+=== The Gradle Software Model
+
+This "new model" serves as enabler
+
+- Much faster, more memory efficient builds
+- Just configure what is required
+- Allow fundamental parallization
+- Provide better diagnostics
+- Reuse cached configuration
+- ...
+
+== Links and pointers
+
+- http://tools.android.com/tech-docs/new-build-system
+- http://tools.android.com/tech-docs/new-build-system/gradle-experimental
+- https://docs.gradle.org/current/userguide/new_model.html
+- https://github.com/gradle/gradle/tree/master/design-docs
+
+== Q & A
+
+[NOTE.speaker]
+--
+Anybody _NO_ experience with Gradle?
+--
+
+
+== Thanks!

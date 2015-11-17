@@ -1,0 +1,21 @@
+<script>
+  // inject footer element
+  var x = document.getElementsByClassName("reveal");
+  var i;
+  for (i = 0; i < x.length; i++) {
+	var footer = document.createElement("div");
+	footer.setAttribute("class", "footer");
+	var footerIcon = document.createElement("img");
+	footerIcon.setAttribute("src", "images/gradle_logo-small-2.png");
+	footerIcon.setAttribute("height", "15");
+	
+	footer.appendChild(footerIcon);
+	footer.appendChild(document.createTextNode('\t at #devoxxma'));
+	x[i].appendChild(footer);   
+  }
+  
+  // displayed upon load, hides when slide changes
+  // Reveal.addEventListener('slidechanged', function(event) {
+  //  document.querySelector('.reveal .footer').style.display = 'none';
+  // });
+</script>
